@@ -111,7 +111,8 @@ MonoBehaviour:
   damage: 10
   bulletAmount: 4
   bulletSpeed: 5
-  recoil: 0
+  recoil: 2
+  fireRate: 0.3
 --- !u!114 &5510680301820889857
 MonoBehaviour:
   m_ObjectHideFlags: 0

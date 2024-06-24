@@ -30,8 +30,10 @@ public class Weapon : MonoBehaviour
     private float bulletSpeed = 5f;
     [SerializeField]
     private float recoil = 2f;
+    [SerializeField]
+    public float fireRate = 0.3f;
 
-
+    private float nextFireTime = 0f;
     private bool canShoot = false;
     private int currentBulletAmount { get; set; } = 0;
 
@@ -54,6 +56,16 @@ public class Weapon : MonoBehaviour
         else
         {
             spriteRenderer.flipX = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot)
+        {
+            Shoot();
+        }
+
+        if (Input.GetKey(KeyCode.Space) && canShoot)
+        {
+            Shoot();
         }
     }
     public void AddDamage(float newDamage)
@@ -81,8 +93,9 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (canShoot && currentBulletAmount > 0)
+        if (canShoot && currentBulletAmount > 0 && Time.time > nextFireTime)
         {
+            nextFireTime = Time.time + fireRate;
             --currentBulletAmount;
             spriteRenderer.sprite = shootSprite;
             flash.SetActive(true);
@@ -100,7 +113,6 @@ public class Weapon : MonoBehaviour
                 GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * recoil, ForceMode2D.Impulse);
             }
         }
-        Iddle();
     }
 
     public void ReloadBullets()
@@ -115,6 +127,7 @@ public class Weapon : MonoBehaviour
         {
             canShoot = false;
             ReloadBullets();
+            Iddle();
         }
     }
 
@@ -122,7 +135,12 @@ public class Weapon : MonoBehaviour
     {
         if (other.CompareTag("Platform"))
         {
-            canShoot = true;
+            Invoke("setCanShoot", 0.5f);
         }
+    }
+
+    private void setCanShoot()
+    {
+        canShoot = true;
     }
 }
