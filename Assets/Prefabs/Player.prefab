@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7320993714752607899}
   - component: {fileID: 3603502775965485895}
   - component: {fileID: 1305681863947332842}
+  - component: {fileID: 6904293417649134586}
   - component: {fileID: 7625935891718520452}
   - component: {fileID: 5045235923930321921}
   m_Layer: 0
@@ -160,6 +161,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63953686, y: 0.69033754}
   m_EdgeRadius: 0
+--- !u!70 &6904293417649134586
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400279862713240316}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000053281756, y: -0.44695982}
+  m_Size: {x: 0.8888894, y: 0.15043433}
+  m_Direction: 1
 --- !u!95 &7625935891718520452
 Animator:
   serializedVersion: 5
@@ -194,5 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  jumpPower: 5
   rb: {fileID: 3603502775965485895}
   animator: {fileID: 7625935891718520452}
