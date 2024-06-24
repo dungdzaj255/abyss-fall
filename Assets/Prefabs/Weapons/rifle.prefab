@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7667407997445210732}
   - component: {fileID: 7667407997445210733}
   - component: {fileID: 8317365205077703550}
+  - component: {fileID: 5510680301820889857}
   - component: {fileID: 8779665815363925961}
   m_Layer: 10
   m_Name: rifle
@@ -102,10 +103,28 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: ab266b01abe94bf1969717b408794600, type: 3}
   shootSprite: {fileID: 21300000, guid: 299107b317de4e9b9a05bc6be791cf51, type: 3}
   flash: {fileID: 593202893414557515}
-  bulletPrefab: {fileID: 8405177130843252043, guid: a73b7b694a3be4c4296a9fca33b9cb16, type: 3}
+  bulletPrefab: {fileID: 5802267295740397398, guid: b2cfbc65453426f4ca630e0e7c32fefa, type: 3}
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  BulletPool: {fileID: 5510680301820889857}
+  damage: 10
+  bulletAmount: 4
+  bulletSpeed: 5
+  recoil: 0
+--- !u!114 &5510680301820889857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667407997445210731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b14141b7d1cfd542995049926546723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5802267295740397398, guid: b2cfbc65453426f4ca630e0e7c32fefa, type: 3}
 --- !u!61 &8779665815363925961
 BoxCollider2D:
   m_ObjectHideFlags: 0
