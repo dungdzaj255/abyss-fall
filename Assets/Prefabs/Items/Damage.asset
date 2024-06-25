@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763553f21576bf44bfb62eb3c44f055, type: 3}
   m_Name: Damage
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -1781412424, guid: 4256b31ed1c9cfa43969dd71f635e588, type: 3}
   itemName: Damage
-  dropChance: 30
-  BULLET_SPEED: 1
+  dropChance: 20
