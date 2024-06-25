@@ -18,13 +18,16 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     bool isGrounded = false;
     private bool isDead = false;
-    [SerializeField]
-    private Weapon weapon;
 
+    public Player Instance;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -67,6 +70,15 @@ public class Player : MonoBehaviour
         // Move the player
         rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
         animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+
+    public void AddHealth(float health)
+    {
+        currentHealth += health;
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     public void TakeDamage(float damage)
