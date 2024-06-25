@@ -5,8 +5,8 @@ using UnityEngine;
 public class EL1Health : MonoBehaviour
 {
     [SerializeField]
-    public int maxHealth = 1;
-    private int currentHealth;
+    public float maxHealth = 1;
+    private float currentHealth;
     private EL1Spawner enemyPool;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class EL1Health : MonoBehaviour
     {
         
     }
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
@@ -33,12 +33,12 @@ public class EL1Health : MonoBehaviour
         currentHealth = maxHealth;
         //ScoreController.instance.AddPoint();
     }
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return maxHealth;
     }

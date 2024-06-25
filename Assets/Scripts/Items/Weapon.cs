@@ -23,13 +23,13 @@ public class Weapon : MonoBehaviour
 
     [Header("Characteristics")]
     [SerializeField]
-    private float damage = 10f;
+    public float damage = 10f;
     [SerializeField]
-    private int bulletAmount = 4;
+    public int bulletAmount = 4;
     [SerializeField]
-    private float bulletSpeed = 5f;
+    public float bulletSpeed = 5f;
     [SerializeField]
-    private float recoil = 2f;
+    public float recoil = 2f;
     [SerializeField]
     public float fireRate = 0.3f;
 
@@ -37,9 +37,15 @@ public class Weapon : MonoBehaviour
     private bool canShoot = false;
     private int currentBulletAmount { get; set; } = 0;
 
+    public static Weapon Instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
         spriteRenderer = GetComponent<SpriteRenderer>();
         BulletPool.InitializePool(bulletAmount);
         currentBulletAmount = bulletAmount;
@@ -129,6 +135,7 @@ public class Weapon : MonoBehaviour
             ReloadBullets();
             Iddle();
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -143,4 +150,5 @@ public class Weapon : MonoBehaviour
     {
         canShoot = true;
     }
+
 }
