@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     bool isGrounded = false;
     private bool isDead = false;
 
-    public Player Instance;
+    public static Player Instance;
     // Start is called before the first frame update
     void Start()
     {

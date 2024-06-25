@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemBag : MonoBehaviour
@@ -8,7 +9,17 @@ public class ItemBag : MonoBehaviour
     private GameObject droppedItemPrefab;
     [SerializeField]
     private List<Item> itemList = new List<Item>();
+
+    public static ItemBag Instance;
+
     // Start is called before the first frame update
+    void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     Item GetDropItem()
     {
@@ -34,11 +45,14 @@ public class ItemBag : MonoBehaviour
         Item droppedItem = GetDropItem();
         if (droppedItem != null)
         {
+            Debug.Log(droppedItem.itemName);
             GameObject item = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
+            item.GetComponent<SpriteRenderer>().sprite = droppedItem.itemSprite;
+            item.name = droppedItem.itemName;
+
             float dropForce = 300f;
-            Vector2 dropDirection = new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f));
+            Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             item.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce);
         }
     }
-    // Update is called once per frame
 }

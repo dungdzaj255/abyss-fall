@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7763553f21576bf44bfb62eb3c44f055, type: 3}
-  m_Name: SmallBandage
+  m_Name: Point
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 2043485236, guid: 4256b31ed1c9cfa43969dd71f635e588, type: 3}
-  itemName: Small bandage
-  dropChance: 50
+  itemSprite: {fileID: 1024044051, guid: 4256b31ed1c9cfa43969dd71f635e588, type: 3}
+  itemName: Point
+  dropChance: 100
