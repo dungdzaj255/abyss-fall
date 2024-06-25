@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1859676438463980731}
   m_Layer: 0
   m_Name: 'Player '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,8 +194,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000053281756, y: -0.44695982}
-  m_Size: {x: 0.8888894, y: 0.15043433}
+  m_Offset: {x: 0.009967545, y: -0.43034756}
+  m_Size: {x: 0.4901994, y: 0.11720981}
   m_Direction: 1
 --- !u!114 &4723719907355847221
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   maxHealth: 100
   rb: {fileID: 3297753782259716757}
   animator: {fileID: 1859676438463980731}
-  weapon: {fileID: 0}
+  Instance: {fileID: 0}
 --- !u!95 &1859676438463980731
 Animator:
   serializedVersion: 5
