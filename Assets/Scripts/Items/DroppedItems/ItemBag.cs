@@ -45,7 +45,6 @@ public class ItemBag : MonoBehaviour
         Item droppedItem = GetDropItem();
         if (droppedItem != null)
         {
-            Debug.Log(droppedItem.itemName);
             GameObject item = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
             item.GetComponent<SpriteRenderer>().sprite = droppedItem.itemSprite;
             item.name = droppedItem.itemName;

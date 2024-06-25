@@ -15,7 +15,6 @@ public class LootItemPrefab : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,6 +22,10 @@ public class LootItemPrefab : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (!other.transform.CompareTag("Platform"))
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), other.transform.GetComponent<Collider2D>());
+        }
         if (other.transform.CompareTag("Player"))
         {
             switch (this.name)
@@ -55,10 +58,6 @@ public class LootItemPrefab : MonoBehaviour
                     break;
             }
             Destroy(this.gameObject);
-        }
-        if (!other.transform.CompareTag("Platform"))
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), other.transform.GetComponent<Collider2D>());
         }
     }
 }
