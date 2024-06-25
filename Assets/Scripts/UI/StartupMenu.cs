@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class StartupMenu : MonoBehaviour
 {
+    public static StartupMenu instance;
+
     [SerializeField] private Transform hightScoreWindow;
     [SerializeField] private Transform menuWindow;
 
@@ -22,9 +24,12 @@ public class StartupMenu : MonoBehaviour
     [SerializeField] private Sprite disabledBtn_sprite;
     [SerializeField] private Sprite disabledSquareBtn_sprite;
 
-    private bool isMuted = false;
+    public bool isMuted = false;
 
     private void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
         playBtn.GetComponent<Button>().onClick.AddListener(PlayGame);
         volumnBtn.GetComponent<Button>().onClick.AddListener(handleClickVolumnBtn);
 
@@ -62,6 +67,10 @@ public class StartupMenu : MonoBehaviour
         menuWindow.gameObject.SetActive(true);
 
         hightScoreWindow.gameObject.SetActive(false);
+    }
+
+    public void RestartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
 }
