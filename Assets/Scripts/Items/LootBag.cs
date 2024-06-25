@@ -8,7 +8,6 @@ public class ItemBag : MonoBehaviour
     private GameObject droppedItemPrefab;
     [SerializeField]
     private List<Item> itemList = new List<Item>();
-    // Start is called before the first frame update
 
     Item GetDropItem()
     {
@@ -40,5 +39,4 @@ public class ItemBag : MonoBehaviour
             item.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce);
         }
     }
-    // Update is called once per frame
 }
