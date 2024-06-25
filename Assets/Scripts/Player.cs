@@ -5,20 +5,29 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    
     public float jumpPower = 5f;
+
+    public float maxHealth = 100f;
+    private float currentHealth;
+
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
     private Animator animator;
     private Vector2 movement;
     bool isGrounded = false;
-    [SerializeField]
-    private Weapon weapon;
+    private bool isDead = false;
 
+    public Player Instance;
     // Start is called before the first frame update
     void Start()
     {
-
+        currentHealth = maxHealth;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +70,30 @@ public class Player : MonoBehaviour
         // Move the player
         rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
         animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+
+    public void AddHealth(float health)
+    {
+        currentHealth += health;
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        if (isDead) return;  // Prevent multiple death triggers
+        isDead = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
