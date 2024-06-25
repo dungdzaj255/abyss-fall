@@ -47,11 +47,11 @@ public class EL1Spawner : MonoBehaviour
             Vector3 spawnPosition = GetFixedSpawnPosition();
             enemy.transform.position = spawnPosition;
             enemy.SetActive(true);
-            //EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            //if (enemyHealth != null)
-            //{
-            //    enemyHealth.ResetEnemyHealth();
-            //}
+            EL1Health enemyHealth = enemy.GetComponent<EL1Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.ResetEnemyHealth();
+            }
         }
     }
 

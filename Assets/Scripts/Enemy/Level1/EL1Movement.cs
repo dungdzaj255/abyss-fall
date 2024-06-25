@@ -57,4 +57,16 @@ public class EL1Movement : MonoBehaviour
         }
         lastPosition = transform.position;
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Enemy lv1 va cham voi Player");
+            //PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            //if (playerHealth != null)
+            //{
+            //    playerHealth.TakeDamage(damageAmount);
+            //}
+        }
+    }
 }
