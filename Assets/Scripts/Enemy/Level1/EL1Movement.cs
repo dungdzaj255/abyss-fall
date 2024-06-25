@@ -11,6 +11,7 @@ public class EL1Movement : MonoBehaviour
     private float maxY = -1.42f;
     private float speed = 2f;
     private Vector3 lastPosition;
+    public Weapon weapon;
 
     // Start is called before the first frame update
     void Start()
@@ -56,5 +57,18 @@ public class EL1Movement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1); // Keep the prefab original
         }
         lastPosition = transform.position;
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Enemy lv1 va cham voi Player");
+            //PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            //if (playerHealth != null)
+            //{
+            //    playerHealth.TakeDamage(damageAmount);
+            //}
+        }
+
     }
 }
