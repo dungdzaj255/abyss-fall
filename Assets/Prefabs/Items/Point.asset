@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763553f21576bf44bfb62eb3c44f055, type: 3}
+  m_Name: Point
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 1024044051, guid: 4256b31ed1c9cfa43969dd71f635e588, type: 3}
+  itemName: Point
+  dropChance: 100

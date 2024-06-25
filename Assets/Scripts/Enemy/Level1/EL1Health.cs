@@ -31,7 +31,8 @@ public class EL1Health : MonoBehaviour
     {
         gameObject.SetActive(false);
         currentHealth = maxHealth;
-        //ScoreController.instance.AddPoint();
+        GetComponent<ItemBag>().InstantiateItem(transform.position);
+        //ScoreController.Instance.AddPoint();
     }
     public float GetCurrentHealth()
     {

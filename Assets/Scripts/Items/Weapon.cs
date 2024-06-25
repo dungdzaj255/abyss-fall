@@ -84,7 +84,7 @@ public class Weapon : MonoBehaviour
         bulletSpeed += speed;
     }
 
-    public void AddBullets()
+    public void AddBullet()
     {
         bulletAmount++;
         currentBulletAmount++;

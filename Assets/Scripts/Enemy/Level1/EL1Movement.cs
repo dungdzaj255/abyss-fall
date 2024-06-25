@@ -11,7 +11,6 @@ public class EL1Movement : MonoBehaviour
     private float maxY = -1.42f;
     private float speed = 2f;
     private Vector3 lastPosition;
-    public Weapon weapon;
 
     // Start is called before the first frame update
     void Start()
