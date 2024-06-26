@@ -47,8 +47,13 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         /* bulletbar */
+        bulletAmountBar.InitBar(bulletAmount);
         bulletAmountBar.SetMax(bulletAmount);
-
+        if (bulletAmount < 10) {
+            bulletAmountBar.SetText("0" + bulletAmount);
+        } else {
+            bulletAmountBar.SetText(bulletAmount + "");
+        }
         //======================
         if (Instance == null)
         {
@@ -97,6 +102,15 @@ public class Weapon : MonoBehaviour
         bulletAmount++;
         currentBulletAmount++;
         BulletPool.AddBullet();
+        /* bulletbar */
+        bulletAmountBar.SetMax(bulletAmount);
+        bulletAmountBar.SetCurrent(currentBulletAmount);
+        if (bulletAmount < 10) {
+            bulletAmountBar.SetText("0" + currentBulletAmount);
+        } else {
+            bulletAmountBar.SetText(currentBulletAmount + "");
+        }
+        //======================
     }
 
     public void Iddle()
@@ -129,6 +143,11 @@ public class Weapon : MonoBehaviour
 
             /* bulletbar */
             bulletAmountBar.SetCurrent(currentBulletAmount);
+            if (bulletAmount < 10) {
+                bulletAmountBar.SetText("0" + currentBulletAmount);
+            } else {
+                bulletAmountBar.SetText(currentBulletAmount + "");
+            }
 
             //======================
         }
@@ -137,6 +156,15 @@ public class Weapon : MonoBehaviour
     public void ReloadBullets()
     {
         currentBulletAmount = bulletAmount;
+        /* bulletbar */
+        bulletAmountBar.SetCurrent(currentBulletAmount);
+        if (bulletAmount < 10) {
+            bulletAmountBar.SetText("0" + currentBulletAmount);
+        } else {
+            bulletAmountBar.SetText(currentBulletAmount + "");
+        }
+
+        //====================== 
     }
 
 

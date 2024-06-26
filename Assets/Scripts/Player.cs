@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
             Instance = this;
         }
         /* healthbar */
+        healthBar.InitBar(Int32.Parse(maxHealth + ""));
         healthBar.SetMax(Int32.Parse(maxHealth + ""));
         //======================
     }
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour
 
         /* healthbar */
         if (Input.GetKeyDown(KeyCode.RightAlt)) {
-            PointSystem.instance.AddPoint(1);
+            TakeDamage(10f);
         }
         //======================
     }
@@ -104,13 +105,16 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
+        if (currentHealth < 0) {
+            currentHealth = 0;
         }
         /* healthbar */
         healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
         //======================
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Die()
