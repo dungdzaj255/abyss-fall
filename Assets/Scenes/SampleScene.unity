@@ -563,6 +563,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8280f72814cb5419d8a53f9df77423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &257404574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257404576}
+  - component: {fileID: 257404575}
+  m_Layer: 0
+  m_Name: GeneratePlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &257404575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257404574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ab6c054b988db4fa7039ee34aab81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformTilemap: {fileID: 1345102326}
+  platformTilemapPrefabs:
+  - {fileID: 376152009623047355, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
+  - {fileID: 5816372760467947833, guid: 89036edd6de684b4abaad76c34389206, type: 3}
+  - {fileID: 8074717386495018381, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
+  linesToGenerate: 3
+  minTilemapsPerLine: 1
+  maxTilemapsPerLine: 3
+  distanceBetweenTilemaps: 5
+  maxWidth: 10
+--- !u!4 &257404576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257404574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9675487, y: -0.39128548, z: 0.07003818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &316900729 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1647316927458534663, guid: f46f9c85a045f6042999d7048fe68568, type: 3}
@@ -669,7 +723,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.739963
+  orthographic size: 8.659327
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -694,7 +748,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.84, y: -0.07, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6057,3 +6111,4 @@ SceneRoots:
   - {fileID: 691985059}
   - {fileID: 554324493}
   - {fileID: 1760878187}
+  - {fileID: 257404576}
