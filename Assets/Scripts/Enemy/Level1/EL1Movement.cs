@@ -15,8 +15,8 @@ public class EL1Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetRandomTargetPosition();
-        lastPosition = transform.position;
+        //SetRandomTargetPosition();
+        //lastPosition = transform.position;
     }
 
     // Update is called once per frame

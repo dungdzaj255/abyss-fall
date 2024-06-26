@@ -8,10 +8,12 @@ public class EL1Health : MonoBehaviour
     public float maxHealth = 1;
     private float currentHealth;
     private EL1Spawner enemyPool;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,17 @@ public class EL1Health : MonoBehaviour
     }
     void Die()
     {
+        if (animator != null)
+        {
+            animator.SetTrigger("death");
+            StartCoroutine(DelayedActions());
+        }
+    }
+
+    IEnumerator DelayedActions()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         gameObject.SetActive(false);
         currentHealth = maxHealth;
         GetComponent<ItemBag>().InstantiateItem(transform.position);
