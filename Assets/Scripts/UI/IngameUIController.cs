@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,16 +16,31 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Transform mutedBtn;
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
+    [SerializeField] private Transform pointCounter;
+    [SerializeField] private Transform pointCounter_position_default;
+    [SerializeField] private Transform pointCounter_position_on_menu;
 
-    private bool isMuted = false;
+    public bool isMuted = false;
     public bool isPaused = false;
+    private Vector2 defaultPosition_pointCounter;
+
+    private void Start() {
+        pointCounter.transform.position = pointCounter_position_default.transform.position;
+    }
+
+    public void Init() {
+        instance = this;
+        try {
+            isPaused = false;
+            isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
+        } catch (FormatException) {
+        }
+        pointCounter.transform.position = defaultPosition_pointCounter;
+    }
 
     private void Awake() {
-        instance = this;
-        if (StartupMenu.instance != null) {
-            isMuted = StartupMenu.instance.isMuted;
-        }
-
+        Init();
+        Time.timeScale = 1f;
         if (isMuted ) {
             mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
@@ -39,9 +55,6 @@ public class IngameUIController : MonoBehaviour {
             mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
         }
         isMuted = !isMuted;
-        if (StartupMenu.instance != null) {
-            StartupMenu.instance.isMuted = isMuted;
-        }
     }
 
     public void handlePause() {
@@ -49,10 +62,13 @@ public class IngameUIController : MonoBehaviour {
             pausedBtn.GetComponent<Image>().sprite = pausedBtn_sprite;
             pausedMenu.gameObject.transform.position = new Vector2(pausedMenu.transform.position.x, 300);
             pausedMenu.gameObject.SetActive(true);
+            pointCounter.transform.position = pointCounter_position_on_menu.transform.position;
+
             Time.timeScale = 0f;
         } else {
             pausedBtn.GetComponent<Image>().sprite = unpausedBtn_sprite;
             pausedMenu.gameObject.SetActive(false);
+            pointCounter.transform.position = pointCounter_position_default.transform.position;
 
             Time.timeScale = 1f;
         }
@@ -67,5 +83,11 @@ public class IngameUIController : MonoBehaviour {
         }
         Time.timeScale = 1f;
         isPaused = false; 
+    }
+
+    public void ReturnMainMenu() {
+        SceneManager.LoadSceneAsync(0);
+        PlayerPrefs.SetString("isPaused", isPaused.ToString());
+        PlayerPrefs.SetString("isMuted", isMuted.ToString());
     }
 }
