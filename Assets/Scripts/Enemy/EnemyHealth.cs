@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EL1Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    public float maxHealth = 1;
+    public float maxHealth;
+    [SerializeField]
     private float currentHealth;
-    private EL1Spawner enemyPool;
+    private EnemySpawner enemyPool;
     private Animator animator;
     // Start is called before the first frame update
     void Start()

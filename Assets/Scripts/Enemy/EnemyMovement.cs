@@ -2,21 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EL1Movement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     private Vector3 targetPosition;
+    [SerializeField]
     private float minX = -8.31f;
+    [SerializeField]
     private float maxX = 6.24f;
+    [SerializeField]
     private float minY = -2.95f;
+    [SerializeField]
     private float maxY = -1.42f;
+    [SerializeField]
     private float speed = 2f;
+    [SerializeField]
+    private float damgeTouchAmount;
+
     private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        //SetRandomTargetPosition();
-        //lastPosition = transform.position;
+        SetRandomTargetPosition();
+        lastPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -35,10 +43,8 @@ public class EL1Movement : MonoBehaviour
 
     void MoveToTargetPosition()
     {
-        // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-        // Check if the enemy has reached the target position
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             SetRandomTargetPosition();
@@ -47,13 +53,13 @@ public class EL1Movement : MonoBehaviour
 
     void CheckDirectionAndFlip()
     {
-        if (transform.position.x > lastPosition.x) // Moving right
+        if (transform.position.x > lastPosition.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Flip the prefab
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (transform.position.x < lastPosition.x) // Moving left
+        else if (transform.position.x < lastPosition.x)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Keep the prefab original
+            transform.localScale = new Vector3(1, 1, 1);
         }
         lastPosition = transform.position;
     }
@@ -61,12 +67,12 @@ public class EL1Movement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Enemy lv1 va cham voi Player");
-            //PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            //if (playerHealth != null)
-            //{
-            //    playerHealth.TakeDamage(damageAmount);
-            //}
+            Debug.Log("Enemy va cham voi Player");
+            Player playerHealth = collision.gameObject.GetComponent<Player>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damgeTouchAmount);
+            }
         }
 
     }
