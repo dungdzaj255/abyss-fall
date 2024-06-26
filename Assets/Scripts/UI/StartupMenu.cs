@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,12 @@ using UnityEngine.UI;
 
 public class StartupMenu : MonoBehaviour
 {
+    public static StartupMenu instance;
+
     [SerializeField] private Transform hightScoreWindow;
     [SerializeField] private Transform menuWindow;
 
     [SerializeField] private Transform playBtn;
-    [SerializeField] private Transform resumeBtn;
     [SerializeField] private Transform volumnBtn;
     [SerializeField] private Sprite volumnBtn_muted;
     [SerializeField] private Sprite volumnBtn_unmuted;
@@ -22,9 +24,28 @@ public class StartupMenu : MonoBehaviour
     [SerializeField] private Sprite disabledBtn_sprite;
     [SerializeField] private Sprite disabledSquareBtn_sprite;
 
-    private bool isMuted = false;
+    public bool isMuted = false;
+
+    private void Start() {
+        PlayerPrefs.SetString("isMuted", isMuted.ToString());
+    }
+
+    public void Init() {
+        instance = this;
+        try {
+            isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
+        } catch (Exception) {
+            
+        }
+    }
 
     private void Awake() {
+        Init();
+        if (isMuted) {
+            volumnBtn.GetComponent<Image>().sprite = volumnBtn_muted;
+        } else {
+            volumnBtn.GetComponent<Image>().sprite = volumnBtn_unmuted;
+        }
         playBtn.GetComponent<Button>().onClick.AddListener(PlayGame);
         volumnBtn.GetComponent<Button>().onClick.AddListener(handleClickVolumnBtn);
 
@@ -33,6 +54,7 @@ public class StartupMenu : MonoBehaviour
 
     public void PlayGame() {
         SceneManager.LoadSceneAsync(1);
+        PlayerPrefs.SetString("isMuted", isMuted.ToString());
     }
 
     public void Exit() {
@@ -62,6 +84,10 @@ public class StartupMenu : MonoBehaviour
         menuWindow.gameObject.SetActive(true);
 
         hightScoreWindow.gameObject.SetActive(false);
+    }
+
+    public void RestartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
 }
