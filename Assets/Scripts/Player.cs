@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     
     public float jumpPower = 5f;
 
+    public float headDamage = 100f;
+
     public float maxHealth = 100f;
     private float currentHealth;
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private Animator animator;
+
     private Vector2 movement;
     bool isGrounded = false;
     private bool isDead = false;
@@ -58,7 +61,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Debug.Log("is Jumping");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isGrounded = false;
             animator.SetBool("isJumping", !isGrounded);
@@ -103,5 +105,28 @@ public class Player : MonoBehaviour
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
         }
+        else if (collision.CompareTag("EnemyLevel1") && !isGrounded)
+        {
+            EL1Health eL1Health = collision.gameObject.GetComponent<EL1Health>();
+            if (eL1Health != null)
+            {
+                eL1Health.TakeDamage(headDamage);
+            }
+        }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("EnemyLevel1"))
+        {
+            TakeDamage(50);
+            animator.SetBool("takeDamage", true);
+        }
+        else
+        {
+            animator.SetBool("takeDamage", false);
+        }
+    }
+
+
 }
