@@ -6,6 +6,11 @@ using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
+
+    /* bulletbar */
+    [SerializeField] private Bar bulletAmountBar;
+
+    //======================
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Sprite idleSprite;
@@ -40,9 +45,12 @@ public class Weapon : MonoBehaviour
     public static Weapon Instance;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        if(Instance == null)
+    void Start() {
+        /* bulletbar */
+        bulletAmountBar.SetMax(bulletAmount);
+
+        //======================
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -118,6 +126,11 @@ public class Weapon : MonoBehaviour
                 //độ giật súng
                 GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * recoil, ForceMode2D.Impulse);
             }
+
+            /* bulletbar */
+            bulletAmountBar.SetCurrent(currentBulletAmount);
+
+            //======================
         }
     }
 

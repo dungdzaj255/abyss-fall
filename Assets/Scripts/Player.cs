@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    /* healthbar */
+    [SerializeField] private Bar healthBar;
+
+    //======================
     public float moveSpeed = 5f;
     
     public float jumpPower = 5f;
@@ -28,6 +33,9 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
+        /* healthbar */
+        healthBar.SetMax(Int32.Parse(maxHealth + ""));
+        //======================
     }
 
     // Update is called once per frame
@@ -63,6 +71,13 @@ public class Player : MonoBehaviour
             isGrounded = false;
             animator.SetBool("isJumping", !isGrounded);
         }
+
+
+        /* healthbar */
+        if (Input.GetKeyDown(KeyCode.RightAlt)) {
+            TakeDamage(10f);
+        }
+        //======================
     }
 
     void FixedUpdate()
@@ -79,6 +94,11 @@ public class Player : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+
+
+        /* healthbar */
+        healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
+        //======================
     }
 
     public void TakeDamage(float damage)
@@ -88,6 +108,9 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+        /* healthbar */
+        healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
+        //======================
     }
 
     void Die()
