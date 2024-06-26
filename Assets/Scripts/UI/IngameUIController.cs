@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,21 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
 
-    private bool isMuted = false;
+    public bool isMuted = false;
     public bool isPaused = false;
 
-    private void Awake() {
+    public void Init() {
         instance = this;
-        if (StartupMenu.instance != null) {
-            isMuted = StartupMenu.instance.isMuted;
+        try {
+            isPaused = false;
+            isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
+        } catch (FormatException) {
         }
+    }
 
+    private void Awake() {
+        Init();
+        Time.timeScale = 1f;
         if (isMuted ) {
             mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
@@ -39,9 +46,6 @@ public class IngameUIController : MonoBehaviour {
             mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
         }
         isMuted = !isMuted;
-        if (StartupMenu.instance != null) {
-            StartupMenu.instance.isMuted = isMuted;
-        }
     }
 
     public void handlePause() {
@@ -67,5 +71,11 @@ public class IngameUIController : MonoBehaviour {
         }
         Time.timeScale = 1f;
         isPaused = false; 
+    }
+
+    public void ReturnMainMenu() {
+        SceneManager.LoadSceneAsync(0);
+        PlayerPrefs.SetString("isPaused", isPaused.ToString());
+        PlayerPrefs.SetString("isMuted", isMuted.ToString());
     }
 }
