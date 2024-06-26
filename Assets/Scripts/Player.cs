@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("EnemyLevel1") && !isGrounded)
         {
-            EL1Health eL1Health = collision.gameObject.GetComponent<EL1Health>();
+            EnemyHealth eL1Health = collision.gameObject.GetComponent<EnemyHealth>();
             if (eL1Health != null)
             {
                 eL1Health.TakeDamage(headDamage);
