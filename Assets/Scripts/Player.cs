@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
         /* healthbar */
         if (Input.GetKeyDown(KeyCode.RightAlt)) {
-            TakeDamage(10f);
+            PointSystem.instance.AddPoint(1);
         }
         //======================
     }

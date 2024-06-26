@@ -16,9 +16,17 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Transform mutedBtn;
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
+    [SerializeField] private Transform pointCounter;
+    [SerializeField] private Transform pointCounter_position_default;
+    [SerializeField] private Transform pointCounter_position_on_menu;
 
     public bool isMuted = false;
     public bool isPaused = false;
+    private Vector2 defaultPosition_pointCounter;
+
+    private void Start() {
+        pointCounter.transform.position = pointCounter_position_default.transform.position;
+    }
 
     public void Init() {
         instance = this;
@@ -27,6 +35,7 @@ public class IngameUIController : MonoBehaviour {
             isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
         } catch (FormatException) {
         }
+        pointCounter.transform.position = defaultPosition_pointCounter;
     }
 
     private void Awake() {
@@ -53,10 +62,13 @@ public class IngameUIController : MonoBehaviour {
             pausedBtn.GetComponent<Image>().sprite = pausedBtn_sprite;
             pausedMenu.gameObject.transform.position = new Vector2(pausedMenu.transform.position.x, 300);
             pausedMenu.gameObject.SetActive(true);
+            pointCounter.transform.position = pointCounter_position_on_menu.transform.position;
+
             Time.timeScale = 0f;
         } else {
             pausedBtn.GetComponent<Image>().sprite = unpausedBtn_sprite;
             pausedMenu.gameObject.SetActive(false);
+            pointCounter.transform.position = pointCounter_position_default.transform.position;
 
             Time.timeScale = 1f;
         }
