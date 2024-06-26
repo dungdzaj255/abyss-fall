@@ -103,7 +103,6 @@ public class Player : MonoBehaviour
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
         }
-<<<<<<< HEAD
         else if (collision.CompareTag("EnemyLevel1") && !isGrounded)
         {
             EnemyHealth eL1Health = collision.gameObject.GetComponent<EnemyHealth>();
@@ -112,7 +111,6 @@ public class Player : MonoBehaviour
                 eL1Health.TakeDamage(headDamage);
             }
         }
-=======
->>>>>>> parent of 7b22d57 (Merge branch 'test' into Enemy-Hieu)
+
     }
 }
