@@ -1,19 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    /* healthbar */
-    [SerializeField] private Bar healthBar;
-
-    //======================
     public float moveSpeed = 5f;
     
     public float jumpPower = 5f;
-
-    public float headDamage = 100f;
 
     public float maxHealth = 100f;
     private float currentHealth;
@@ -22,7 +15,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private Animator animator;
-
     private Vector2 movement;
     bool isGrounded = false;
     private bool isDead = false;
@@ -36,10 +28,6 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
-        /* healthbar */
-        healthBar.InitBar(Int32.Parse(maxHealth + ""));
-        healthBar.SetMax(Int32.Parse(maxHealth + ""));
-        //======================
     }
 
     // Update is called once per frame
@@ -70,17 +58,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            Debug.Log("is Jumping");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isGrounded = false;
             animator.SetBool("isJumping", !isGrounded);
         }
-
-
-        /* healthbar */
-        if (Input.GetKeyDown(KeyCode.RightAlt)) {
-            TakeDamage(10f);
-        }
-        //======================
     }
 
     void FixedUpdate()
@@ -97,22 +79,11 @@ public class Player : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-
-
-        /* healthbar */
-        healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
-        //======================
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0) {
-            currentHealth = 0;
-        }
-        /* healthbar */
-        healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
-        //======================
         if (currentHealth <= 0)
         {
             Die();
@@ -132,6 +103,7 @@ public class Player : MonoBehaviour
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
         }
+<<<<<<< HEAD
         else if (collision.CompareTag("EnemyLevel1") && !isGrounded)
         {
             EnemyHealth eL1Health = collision.gameObject.GetComponent<EnemyHealth>();
@@ -140,20 +112,7 @@ public class Player : MonoBehaviour
                 eL1Health.TakeDamage(headDamage);
             }
         }
+=======
+>>>>>>> parent of 7b22d57 (Merge branch 'test' into Enemy-Hieu)
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("EnemyLevel1"))
-        {
-            TakeDamage(50);
-            animator.SetBool("takeDamage", true);
-        }
-        else
-        {
-            animator.SetBool("takeDamage", false);
-        }
-    }
-
-
 }

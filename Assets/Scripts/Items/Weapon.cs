@@ -6,11 +6,6 @@ using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
-
-    /* bulletbar */
-    [SerializeField] private Bar bulletAmountBar;
-
-    //======================
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Sprite idleSprite;
@@ -45,17 +40,9 @@ public class Weapon : MonoBehaviour
     public static Weapon Instance;
 
     // Start is called before the first frame update
-    void Start() {
-        /* bulletbar */
-        bulletAmountBar.InitBar(bulletAmount);
-        bulletAmountBar.SetMax(bulletAmount);
-        if (bulletAmount < 10) {
-            bulletAmountBar.SetText("0" + bulletAmount);
-        } else {
-            bulletAmountBar.SetText(bulletAmount + "");
-        }
-        //======================
-        if (Instance == null)
+    void Start()
+    {
+        if(Instance == null)
         {
             Instance = this;
         }
@@ -102,15 +89,6 @@ public class Weapon : MonoBehaviour
         bulletAmount++;
         currentBulletAmount++;
         BulletPool.AddBullet();
-        /* bulletbar */
-        bulletAmountBar.SetMax(bulletAmount);
-        bulletAmountBar.SetCurrent(currentBulletAmount);
-        if (bulletAmount < 10) {
-            bulletAmountBar.SetText("0" + currentBulletAmount);
-        } else {
-            bulletAmountBar.SetText(currentBulletAmount + "");
-        }
-        //======================
     }
 
     public void Iddle()
@@ -140,31 +118,12 @@ public class Weapon : MonoBehaviour
                 //độ giật súng
                 GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * recoil, ForceMode2D.Impulse);
             }
-
-            /* bulletbar */
-            bulletAmountBar.SetCurrent(currentBulletAmount);
-            if (bulletAmount < 10) {
-                bulletAmountBar.SetText("0" + currentBulletAmount);
-            } else {
-                bulletAmountBar.SetText(currentBulletAmount + "");
-            }
-
-            //======================
         }
     }
 
     public void ReloadBullets()
     {
         currentBulletAmount = bulletAmount;
-        /* bulletbar */
-        bulletAmountBar.SetCurrent(currentBulletAmount);
-        if (bulletAmount < 10) {
-            bulletAmountBar.SetText("0" + currentBulletAmount);
-        } else {
-            bulletAmountBar.SetText(currentBulletAmount + "");
-        }
-
-        //====================== 
     }
 
 

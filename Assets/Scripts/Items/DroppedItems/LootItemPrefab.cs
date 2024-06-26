@@ -52,8 +52,6 @@ public class LootItemPrefab : MonoBehaviour
                     break;
                 case "Points":
                     //UIController.Instance.AddPoint();
-                    //Add Point
-                    PointSystem.instance.AddPoint(1);
                     Debug.Log($"Add bullet speed +{BULLET_SPEED}");
                     break;
                 default:
