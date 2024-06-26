@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EL1Spawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    public static EL1Spawner instance;
+    public static EnemySpawner instance;
     private List<GameObject> pooledEnemies = new List<GameObject>();
     [SerializeField] private int amountToPool = 5;
-    [SerializeField] private GameObject el1Prefab;
+    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnInterval = 3f;
     private float spawnTimer;
     private void Awake()
@@ -22,7 +22,7 @@ public class EL1Spawner : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(el1Prefab);
+            GameObject obj = Instantiate(enemyPrefab);
             obj.SetActive(false);
             pooledEnemies.Add(obj);
         }
@@ -47,7 +47,7 @@ public class EL1Spawner : MonoBehaviour
             Vector3 spawnPosition = GetFixedSpawnPosition();
             enemy.transform.position = spawnPosition;
             enemy.SetActive(true);
-            EL1Health enemyHealth = enemy.GetComponent<EL1Health>();
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.ResetEnemyHealth();

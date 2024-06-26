@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EL1Movement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     private Vector3 targetPosition;
+    [SerializeField]
     private float minX = -8.31f;
+    [SerializeField]
     private float maxX = 6.24f;
+    [SerializeField]
     private float minY = -2.95f;
+    [SerializeField]
     private float maxY = -1.42f;
+    [SerializeField]
     private float speed = 2f;
     private Vector3 lastPosition;
 

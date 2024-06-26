@@ -103,12 +103,12 @@ public class Player : MonoBehaviour
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
         }
-        else if (collision.CompareTag("EnemyLevel1") && !isGrounded)
+        else if (collision.CompareTag("Enemy") && !isGrounded)
         {
             EnemyHealth eL1Health = collision.gameObject.GetComponent<EnemyHealth>();
             if (eL1Health != null)
             {
-                eL1Health.TakeDamage(headDamage);
+                //eL1Health.TakeDamage();
             }
         }
 
