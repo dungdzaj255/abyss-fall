@@ -16,9 +16,9 @@ public class Bullet : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.tag == "EnemyLevel1")
+        if (collision.gameObject.tag == "Enemy")
         {
-            EL1Health eL1Health = collision.gameObject.GetComponent<EL1Health>();
+            EnemyHealth eL1Health = collision.gameObject.GetComponent<EnemyHealth>();
             if (eL1Health != null)
             {
                 eL1Health.TakeDamage(Weapon.Instance.damage);
