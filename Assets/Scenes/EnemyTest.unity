@@ -936,6 +936,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1496776652039068325, guid: 9112f8f6f959ec941b2e8be0fca01738, type: 3}
+      propertyPath: damageTouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523520684820885268, guid: 9112f8f6f959ec941b2e8be0fca01738, type: 3}
+      propertyPath: damageTouch
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3132376932071663614, guid: 9112f8f6f959ec941b2e8be0fca01738, type: 3}
       propertyPath: m_FlipX
       value: 0

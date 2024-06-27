@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  currentHealth: 0
+  currentHealth: 1
 --- !u!114 &6396408156532292927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
-  damageTouch: 0
+  damageTouch: 1
 --- !u!1 &4041346463774990076
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,8 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f03faf0235ad904eb1f99f77315f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 2
+  currentHealth: 2
 --- !u!114 &5400342437388194770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
-  damageTouch: 0
+  damageTouch: 2
 --- !u!1 &5831877782881205522
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f03faf0235ad904eb1f99f77315f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
 --- !u!114 &7378135884334467485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,4 +846,4 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
-  damageTouch: 0
+  damageTouch: 3
