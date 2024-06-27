@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EL1Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    public float maxHealth = 1;
+    public float maxHealth;
+    [SerializeField]
     private float currentHealth;
-    private EL1Spawner enemyPool;
+    private EnemySpawner enemyPool;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +25,13 @@ public class EL1Health : MonoBehaviour
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
-    void Die()
+    private IEnumerator Die()
     {
+        GetComponent<Animator>().SetTrigger("Death");
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
         currentHealth = maxHealth;
         GetComponent<ItemBag>().InstantiateItem(transform.position);
