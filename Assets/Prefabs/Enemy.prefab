@@ -49,10 +49,10 @@ GameObject:
   - component: {fileID: 3132376932071663614}
   - component: {fileID: 8318215865026367275}
   - component: {fileID: 1151534296177539521}
-  - component: {fileID: 3224539398328114388}
   - component: {fileID: 5631623905222028654}
   - component: {fileID: 8781185152789349708}
   - component: {fileID: 6396408156532292927}
+  - component: {fileID: 1496776652039068325}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Enemy
@@ -163,24 +163,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3224539398328114388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134004415745001833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -8.31
-  maxX: 6.24
-  minY: -2.95
-  maxY: -1.42
-  speed: 2
-  damageTouch: 0
 --- !u!61 &5631623905222028654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +242,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
+--- !u!114 &1496776652039068325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134004415745001833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -8.31
+  maxX: 6.24
+  minY: -2.95
+  maxY: -1.42
+  speed: 2
+  damageTouch: 0
 --- !u!1 &4041346463774990076
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 1156211320750425109}
   - component: {fileID: 6377176260293760725}
   - component: {fileID: 5400342437388194770}
-  - component: {fileID: 3497279865542100081}
+  - component: {fileID: 2523520684820885268}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Enemy
@@ -559,7 +559,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
---- !u!114 &3497279865542100081
+--- !u!114 &2523520684820885268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 8064252019050526294}
   - component: {fileID: 288595188567981873}
   - component: {fileID: 7378135884334467485}
-  - component: {fileID: 7643349967426333545}
+  - component: {fileID: 1248092641406137099}
   m_Layer: 0
   m_Name: Level3
   m_TagString: Enemy
@@ -829,7 +829,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
---- !u!114 &7643349967426333545
+--- !u!114 &1248092641406137099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
