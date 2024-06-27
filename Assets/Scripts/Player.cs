@@ -13,8 +13,12 @@ public class Player : MonoBehaviour
     
     public float jumpPower = 5f;
 
+    public float headDamage = 100f;
+
     public float maxHealth = 100f;
     private float currentHealth;
+
+    public float bounceForce = 5f;
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -129,6 +133,32 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
+        }
+        if(collision.CompareTag("Enemy") && !isGrounded)
+        {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            if(enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(headDamage);
+                rb.velocity = new Vector2(rb.velocity.x, bounceForce);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(50);
+            animator.SetBool("takeDamage", true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            animator.SetBool("takeDamage", false);
         }
     }
 }
