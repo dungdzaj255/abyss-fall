@@ -180,6 +180,7 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
+  damageTouch: 0
 --- !u!61 &5631623905222028654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -434,7 +435,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: -692717035, guid: 8f9dfd76f39d86340926dcb77e4e70a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.37, y: 0.57}
@@ -575,6 +576,7 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
+  damageTouch: 0
 --- !u!1 &5831877782881205522
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +705,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: 2129611561, guid: 3cfc6896d23100f4da389421b63c5e7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.39, y: 0.52}
@@ -844,3 +846,4 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
+  damageTouch: 0
