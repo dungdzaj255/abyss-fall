@@ -14,7 +14,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float maxY = -1.42f;
     [SerializeField]
-    private float speed = 2f;
+    private float speed;
+    [SerializeField]
+    private float damageTouch;
     private Vector3 lastPosition;
 
     // Start is called before the first frame update
@@ -40,6 +42,12 @@ public class EnemyMovement : MonoBehaviour
 
     void MoveToTargetPosition()
     {
+        EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
+
+        if (enemyHealth.GetCurrentHealth() <= 0)
+        {
+            speed = 0;
+        }
         // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 

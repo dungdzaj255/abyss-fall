@@ -49,10 +49,10 @@ GameObject:
   - component: {fileID: 3132376932071663614}
   - component: {fileID: 8318215865026367275}
   - component: {fileID: 1151534296177539521}
-  - component: {fileID: 3224539398328114388}
   - component: {fileID: 5631623905222028654}
   - component: {fileID: 8781185152789349708}
   - component: {fileID: 6396408156532292927}
+  - component: {fileID: 1496776652039068325}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Enemy
@@ -163,23 +163,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3224539398328114388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134004415745001833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -8.31
-  maxX: 6.24
-  minY: -2.95
-  maxY: -1.42
-  speed: 2
 --- !u!61 &5631623905222028654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  currentHealth: 0
+  currentHealth: 1
 --- !u!114 &6396408156532292927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +242,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
+--- !u!114 &1496776652039068325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134004415745001833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -8.31
+  maxX: 6.24
+  minY: -2.95
+  maxY: -1.42
+  speed: 2
+  damageTouch: 1
 --- !u!1 &4041346463774990076
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +369,7 @@ GameObject:
   - component: {fileID: 1156211320750425109}
   - component: {fileID: 6377176260293760725}
   - component: {fileID: 5400342437388194770}
-  - component: {fileID: 3497279865542100081}
+  - component: {fileID: 2523520684820885268}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Enemy
@@ -434,7 +435,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: -692717035, guid: 8f9dfd76f39d86340926dcb77e4e70a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.37, y: 0.57}
@@ -536,8 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f03faf0235ad904eb1f99f77315f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 2
+  currentHealth: 2
 --- !u!114 &5400342437388194770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
---- !u!114 &3497279865542100081
+--- !u!114 &2523520684820885268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -575,6 +576,7 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
+  damageTouch: 2
 --- !u!1 &5831877782881205522
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +639,7 @@ GameObject:
   - component: {fileID: 8064252019050526294}
   - component: {fileID: 288595188567981873}
   - component: {fileID: 7378135884334467485}
-  - component: {fileID: 7643349967426333545}
+  - component: {fileID: 1248092641406137099}
   m_Layer: 0
   m_Name: Level3
   m_TagString: Enemy
@@ -703,7 +705,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: 2129611561, guid: 3cfc6896d23100f4da389421b63c5e7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.39, y: 0.52}
@@ -805,8 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f03faf0235ad904eb1f99f77315f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
 --- !u!114 &7378135884334467485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +829,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
   - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
---- !u!114 &7643349967426333545
+--- !u!114 &1248092641406137099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -844,3 +846,4 @@ MonoBehaviour:
   minY: -2.95
   maxY: -1.42
   speed: 2
+  damageTouch: 3
