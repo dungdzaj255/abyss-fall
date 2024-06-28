@@ -866,8 +866,8 @@ MonoBehaviour:
   maxX: 6.24
   minY: -2.95
   maxY: -1.42
-  speed: 2
-  damageTouch: 10
+  speed: 0
+  damageTouch: 0
 --- !u!1 &685497200
 GameObject:
   m_ObjectHideFlags: 0
@@ -4435,8 +4435,8 @@ MonoBehaviour:
   maxX: 6.24
   minY: -2.95
   maxY: -1.42
-  speed: 2
-  damageTouch: 30
+  speed: 0
+  damageTouch: 0
 --- !u!1 &1345102322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,8 +5346,8 @@ MonoBehaviour:
   maxX: 6.24
   minY: -2.95
   maxY: -1.42
-  speed: 2
-  damageTouch: 20
+  speed: 0
+  damageTouch: 0
 --- !u!1 &1760878184
 GameObject:
   m_ObjectHideFlags: 0
