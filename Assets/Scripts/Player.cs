@@ -149,7 +149,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            TakeDamage(50);
+            float enemyDamage = collision.transform.GetComponent<EnemyMovement>().damageTouch;
+            TakeDamage(enemyDamage);
             animator.SetBool("takeDamage", true);
         }
     }

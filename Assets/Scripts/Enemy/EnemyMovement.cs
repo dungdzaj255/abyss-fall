@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float damageTouch;
+    public float damageTouch;
     private Vector3 lastPosition;
 
     // Start is called before the first frame update
