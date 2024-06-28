@@ -28,6 +28,7 @@ public class StartupMenu : MonoBehaviour
 
     private void Start() {
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
+        hightScoreWindow.gameObject.SetActive(false);
     }
 
     public void Init() {
@@ -77,7 +78,6 @@ public class StartupMenu : MonoBehaviour
     public void handleClickHighScoreBtn() {
         menuWindow.gameObject.SetActive(false);
         hightScoreWindow.gameObject.SetActive(true);
-        hightScoreWindow.gameObject.transform.position = new Vector2(hightScoreWindow.gameObject.transform.position.x, 300);
     }
 
     public void returnToMainMenu() {

@@ -60,13 +60,13 @@ public class EnemyMovement : MonoBehaviour
 
     void CheckDirectionAndFlip()
     {
-        if (transform.position.x > lastPosition.x) // Moving right
+        if (transform.position.x > lastPosition.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Flip the prefab
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (transform.position.x < lastPosition.x) // Moving left
+        else if (transform.position.x < lastPosition.x)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Keep the prefab original
+            transform.localScale = new Vector3(1, 1, 1);
         }
         lastPosition = transform.position;
     }
@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Enemy lv1 va cham voi Player");
+            //Debug.Log("Enemy lv1 va cham voi Player");
             //PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             //if (playerHealth != null)
             //{
