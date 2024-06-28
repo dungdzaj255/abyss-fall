@@ -243,7 +243,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &1496776652039068325
 MonoBehaviour:
@@ -263,6 +262,7 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 1
+  POINTS: 1
 --- !u!50 &2604674311820489501
 Rigidbody2D:
   serializedVersion: 4
@@ -603,7 +603,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &2523520684820885268
 MonoBehaviour:
@@ -623,6 +622,7 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 2
+  POINTS: 2
 --- !u!50 &5739742757219822577
 Rigidbody2D:
   serializedVersion: 4
@@ -916,7 +916,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &1248092641406137099
 MonoBehaviour:
@@ -936,6 +935,7 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 3
+  POINTS: 3
 --- !u!50 &855344692822016914
 Rigidbody2D:
   serializedVersion: 4

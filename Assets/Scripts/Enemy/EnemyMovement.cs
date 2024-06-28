@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     public float damageTouch;
+    [SerializeField]
+    public int POINTS;
     private Vector3 lastPosition;
     private bool isMovingBack = false;
 
