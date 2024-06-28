@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f9dfd76f39d86340926dcb77e4e70a9
+guid: b207a0941779758479cbb8fb3273238f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 16384
     resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,1068 +93,1097 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_0
+      name: spr_NecromancerDeath_strip52_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 29
-        width: 37
+        x: 38
+        y: 32
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed44bc910433093469f67899fe919418
+      internalID: 1188092951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 32
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea42c4cab5d6c748951ab1deaabeda4
+      internalID: -886378876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 32
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e187f49274c891428c679600f3eea8a
+      internalID: -574845914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_3
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 32
+        width: 23
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86072a55939138e4bb043792eff73007
+      internalID: 1768097072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba8d803f9e969148beb83fc34353c38
+      internalID: -1516889256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_5
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a731a8bb754fc94ab64af978fa76c62
+      internalID: -683605479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f5c1120993e3f4e985a552ae4a7e52
+      internalID: 419507162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_7
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149bb34096af6794887ab7a9a7519ca3
+      internalID: -1310274986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_8
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b7102287b9be04bb8b77d992df1d53
+      internalID: -2052331891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_9
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa83facc0bb2f194ea77f2f4764ef154
+      internalID: 1391408403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_10
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1b8366d17278c4b8d2a2c268e275f1
+      internalID: -2049955535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_11
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7086e7a8acf0dd241802b4d7b8e56ea7
+      internalID: 1408168615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_12
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6e5a9fd40a77b4c95a9c40d0a5b392
+      internalID: -600562286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_13
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957f9f13aba926b4583bfbc4b2d9e4da
+      internalID: 1239125781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_14
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 32
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14e88fdda5bfa74b8155bad80a6cff8
+      internalID: 392860934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_15
+      rect:
+        serializedVersion: 2
+        x: 1481
+        y: 32
+        width: 20
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42293aa99c353646bbe708a072f67b1
+      internalID: -1568746780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_17
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 32
+        width: 20
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8076be1830312f4e936162f9d287bc6
+      internalID: 279498868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_19
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 32
+        width: 22
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e32551cdaf55ba9488d294181454acd2
-      internalID: -692717035
+      spriteID: 86b9136010cbe3143a9ab9cb615c6c6d
+      internalID: -766645880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_1
+      name: spr_NecromancerDeath_strip52_22
       rect:
         serializedVersion: 2
-        x: 131
-        y: 29
-        width: 33
-        height: 53
+        x: 2153
+        y: 32
+        width: 27
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cea3105156b5e5d4693bbe2e2688a168
-      internalID: -677168811
+      spriteID: ad2ee27f7f940304995f4868ed87cf3e
+      internalID: 1174323846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_2
+      name: spr_NecromancerDeath_strip52_23
       rect:
         serializedVersion: 2
-        x: 225
-        y: 29
-        width: 37
+        x: 1577
+        y: 32
+        width: 20
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8d59fe576f7e1429158790813d656f
+      internalID: -710870291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_NecromancerDeath_strip52_24
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 32
+        width: 23
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b644045be9a80c747a811eccaf19fb88
-      internalID: -593689304
+      spriteID: 906e15cc314cf174b9819bfeb2d1d93f
+      internalID: 334940186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_3
+      name: spr_NecromancerDeath_strip52_25
       rect:
         serializedVersion: 2
-        x: 323
-        y: 29
-        width: 33
+        x: 1961
+        y: 32
+        width: 23
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57650c4b1950ed64da1956a2d8b64270
-      internalID: -903123356
+      spriteID: 5a0e7cf5ca668714198b416d024ee82d
+      internalID: -900632392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_4
+      name: spr_NecromancerDeath_strip52_26
       rect:
         serializedVersion: 2
-        x: 417
-        y: 29
-        width: 38
+        x: 2055
+        y: 31
+        width: 26
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8f2e0d44a8dd44d95c1c41ddf63a10
-      internalID: -766915251
+      spriteID: 9cc70b4b243f6ce40bb2b10e276e4cd3
+      internalID: -688868467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_5
+      name: spr_NecromancerDeath_strip52_27
       rect:
         serializedVersion: 2
-        x: 516
-        y: 29
-        width: 32
-        height: 57
+        x: 2245
+        y: 32
+        width: 30
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3cc5a0dfbcb5d48b8b75750576610f
-      internalID: 72969205
+      spriteID: 2dd70e6f2e65f17459a3b132961fd004
+      internalID: -787687696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_6
+      name: spr_NecromancerDeath_strip52_28
       rect:
         serializedVersion: 2
-        x: 609
-        y: 29
-        width: 38
-        height: 57
+        x: 2340
+        y: 32
+        width: 29
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6626878e44d5b041b5003e0c33ceaed
-      internalID: -1836176284
+      spriteID: e1fda5f64bd7ffe4b84492219f9efc40
+      internalID: -267168908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_7
+      name: spr_NecromancerDeath_strip52_29
       rect:
         serializedVersion: 2
-        x: 708
-        y: 29
-        width: 33
-        height: 57
+        x: 2436
+        y: 32
+        width: 30
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24306c4fce9d02c41ba6e2a21768b462
-      internalID: -582645838
+      spriteID: e861121f6d4c114428678334ffea3c79
+      internalID: -1252997243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_8
+      name: spr_NecromancerDeath_strip52_32
       rect:
         serializedVersion: 2
-        x: 802
-        y: 29
-        width: 37
-        height: 57
+        x: 2532
+        y: 32
+        width: 25
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcce9f57e6de8a64bb914d34e0021aee
-      internalID: 1899009028
+      spriteID: e1c73aaa12d6ec44f9c234b80fc24983
+      internalID: -1332837148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_9
+      name: spr_NecromancerDeath_strip52_33
       rect:
         serializedVersion: 2
-        x: 900
-        y: 29
-        width: 33
-        height: 57
+        x: 2628
+        y: 32
+        width: 25
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aa24e632dd1ce147a7bbda733428e9e
-      internalID: 161683472
+      spriteID: 9b0f6f8bb89714e498e0af44951d76ff
+      internalID: 369213002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_10
+      name: spr_NecromancerDeath_strip52_34
       rect:
         serializedVersion: 2
-        x: 994
-        y: 29
-        width: 37
-        height: 57
+        x: 2725
+        y: 32
+        width: 24
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01d4399cc2cfb8a498a1761b9bbb3620
-      internalID: 2029115320
+      spriteID: 6599d619630391b408b549126b8eb380
+      internalID: 1772058270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_11
+      name: spr_NecromancerDeath_strip52_35
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 29
-        width: 33
-        height: 57
+        x: 2820
+        y: 32
+        width: 25
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 226f608391b1ffc4b8f3697760752e84
-      internalID: 637705434
+      spriteID: a3da02371aea83442affd1dcc3fdcc6f
+      internalID: -2001798995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_12
+      name: spr_NecromancerDeath_strip52_36
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 29
-        width: 33
-        height: 57
+        x: 2921
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68dd83204c86e94db362c9529dd6aaf
-      internalID: -147241260
+      spriteID: b1546eb70f042ec449f44018cc090942
+      internalID: 1728989511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_13
+      name: spr_NecromancerDeath_strip52_37
       rect:
         serializedVersion: 2
-        x: 1284
-        y: 29
-        width: 33
-        height: 57
+        x: 3017
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31eef4da818a5ae4abcddbca67d631b0
-      internalID: -2022296269
+      spriteID: 6eec196e5ef3368428add6f56bb0396e
+      internalID: -480457889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_14
+      name: spr_NecromancerDeath_strip52_38
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 29
-        width: 33
-        height: 57
+        x: 3113
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3cf992569518b4dbd197dc6ca6b06e
-      internalID: 528073444
+      spriteID: bc8e2950c219ee347a9e776c06c0d5bc
+      internalID: 1883345472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_15
+      name: spr_NecromancerDeath_strip52_39
       rect:
         serializedVersion: 2
-        x: 1472
-        y: 29
-        width: 37
-        height: 57
+        x: 3209
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b363b0da6207294fa2a1cfd0b1a4fd0
-      internalID: 18170304
+      spriteID: 5f44329778b123746be3a26bf3ad65de
+      internalID: 1685494167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_16
+      name: spr_NecromancerDeath_strip52_40
       rect:
         serializedVersion: 2
-        x: 1570
-        y: 29
-        width: 33
-        height: 57
+        x: 3305
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da6c3f1d08bd9e14eb670a5055803b54
-      internalID: -1485417638
+      spriteID: 87e919030d6155e4b84e92f42277b830
+      internalID: 1745443813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_17
+      name: spr_NecromancerDeath_strip52_41
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 29
-        width: 38
-        height: 57
+        x: 3401
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a530d96b96ba24ca45005902e6d19a
-      internalID: -1191677455
+      spriteID: 40bc7aa43ef1bfb459692007a239649e
+      internalID: -1334518324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_18
+      name: spr_NecromancerDeath_strip52_42
       rect:
         serializedVersion: 2
-        x: 1762
-        y: 29
-        width: 33
-        height: 57
+        x: 3497
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a0ceecbf9e80404cb5d680137a65df6
-      internalID: 414615905
+      spriteID: 703b86f7cc05a7d40a124a08ddf837df
+      internalID: -920858158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_19
+      name: spr_NecromancerDeath_strip52_43
       rect:
         serializedVersion: 2
-        x: 1856
-        y: 29
-        width: 38
-        height: 57
+        x: 3593
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 997427eb69d94d547a461dacf6db3a35
-      internalID: 467555903
+      spriteID: 7663ae4c63645a644ac84b1ed03a70a7
+      internalID: -177936860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_20
+      name: spr_NecromancerDeath_strip52_44
       rect:
         serializedVersion: 2
-        x: 1955
-        y: 29
-        width: 32
-        height: 57
+        x: 3689
+        y: 32
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 073535deb46a34549894093d6b4c32b0
-      internalID: -1780482936
+      spriteID: f6aa6bc5f059c8e48a1efdfd3eee47a1
+      internalID: 951128423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_21
+      name: spr_NecromancerDeath_strip52_50
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 29
-        width: 38
-        height: 57
+        x: 3977
+        y: 32
+        width: 19
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52de04be70747e34d899eb6f1fac2072
-      internalID: -745062346
+      spriteID: 984240ff06758a84ba0efbcc483e7ac9
+      internalID: 953504630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_22
+      name: spr_NecromancerDeath_strip52_54
       rect:
         serializedVersion: 2
-        x: 2147
-        y: 29
-        width: 33
-        height: 53
+        x: 3881
+        y: 32
+        width: 21
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c923bd5c6087b04bac00625f514c8c4
-      internalID: 1316627211
+      spriteID: 3810937328d439749b5f30f51674b4f9
+      internalID: -232755687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_23
+      name: spr_NecromancerDeath_strip52_55
       rect:
         serializedVersion: 2
-        x: 2241
-        y: 29
-        width: 37
-        height: 57
+        x: 4076
+        y: 32
+        width: 13
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73b57edf971398b4386cd7363731b184
-      internalID: 1170794118
+      spriteID: 88430eb429291024d9d30afbbd30544e
+      internalID: -55080776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_24
+      name: spr_NecromancerDeath_strip52_56
       rect:
         serializedVersion: 2
-        x: 2334
-        y: 29
-        width: 38
-        height: 53
+        x: 4169
+        y: 32
+        width: 18
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a721ecf19c5b52428da47858accb3db
-      internalID: -1690187618
+      spriteID: 33dbe870387bc124186e47ec48a34fe5
+      internalID: -68487355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_25
+      name: spr_NecromancerDeath_strip52_58
       rect:
         serializedVersion: 2
-        x: 2433
-        y: 29
-        width: 37
-        height: 57
+        x: 3785
+        y: 32
+        width: 21
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a9dad50eb453b468f7aee9afaa2ff0
-      internalID: -1354862001
+      spriteID: e4f4c60d1f85c984987a02c390ab7340
+      internalID: 472565539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_26
+      name: spr_NecromancerDeath_strip52_59
       rect:
         serializedVersion: 2
-        x: 2527
-        y: 29
-        width: 37
-        height: 53
+        x: 4265
+        y: 32
+        width: 24
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dcbe5bde7be5ed4399ca56af9382eae
-      internalID: 1345915269
+      spriteID: a79125df102b4ac42ba0b529fb7d9015
+      internalID: -1359976610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_27
+      name: spr_NecromancerDeath_strip52_60
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 29
-        width: 37
-        height: 57
+        x: 4361
+        y: 32
+        width: 19
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab085a599886f54bbaaac0d63db214b
-      internalID: -810475069
+      spriteID: f51505785cc45a443aa507ef0c714868
+      internalID: 1915675481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_28
+      name: spr_NecromancerDeath_strip52_61
       rect:
         serializedVersion: 2
-        x: 2719
-        y: 29
-        width: 37
-        height: 57
+        x: 4457
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d23b5c91365cc04592db098a5659c1b
-      internalID: 1056437476
+      spriteID: 2131a4edea2b15f4ebd8a19c904c4d6a
+      internalID: -1589434037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_29
+      name: spr_NecromancerDeath_strip52_62
       rect:
         serializedVersion: 2
-        x: 2817
-        y: 29
-        width: 38
-        height: 57
+        x: 4553
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 025bd7b7a00f7ac46a58cd61370f4dfa
-      internalID: -1242228153
+      spriteID: 27651e23958e6484fbe0028842cc6ac8
+      internalID: -845951348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_30
+      name: spr_NecromancerDeath_strip52_63
       rect:
         serializedVersion: 2
-        x: 2911
-        y: 29
-        width: 37
-        height: 57
+        x: 4649
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 096fceb01deac224cae4f48237b7819c
-      internalID: -1746571810
+      spriteID: bfec3e3484c3c824d90ab3d80d2aba42
+      internalID: 1585470414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_31
+      name: spr_NecromancerDeath_strip52_64
       rect:
         serializedVersion: 2
-        x: 3009
-        y: 29
-        width: 38
-        height: 57
+        x: 4745
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20e46c34b767d8045ac1ddd8f576d3e1
-      internalID: -1092530057
+      spriteID: 49c22db2e371b1c4e8b7a81071786cab
+      internalID: 1062068443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_32
+      name: spr_NecromancerDeath_strip52_65
       rect:
         serializedVersion: 2
-        x: 3103
-        y: 29
-        width: 38
-        height: 57
+        x: 4841
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7e32b6907dbe994492de0334f1c9368
-      internalID: -477829021
+      spriteID: 6545cae64c6c3074990ca429449626fb
+      internalID: 869750795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_33
+      name: spr_NecromancerDeath_strip52_66
       rect:
         serializedVersion: 2
-        x: 3202
-        y: 29
-        width: 37
-        height: 57
+        x: 4937
+        y: 32
+        width: 19
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddcf2499cc3bfe44e894487afe072c3c
-      internalID: -867607908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_34
-      rect:
-        serializedVersion: 2
-        x: 3295
-        y: 29
-        width: 38
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b2550b7c58944b4894218b16e595186
-      internalID: 1956345357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_35
-      rect:
-        serializedVersion: 2
-        x: 3394
-        y: 29
-        width: 37
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d02dbf30617c1eb47becf19514feebfd
-      internalID: 237945205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_36
-      rect:
-        serializedVersion: 2
-        x: 3483
-        y: 29
-        width: 42
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7efb2e6bf4a69b4e9208fd6e0383f76
-      internalID: -1286029712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_37
-      rect:
-        serializedVersion: 2
-        x: 3586
-        y: 29
-        width: 33
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a48e347b54b80314195be980096704a1
-      internalID: -1166143790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_38
-      rect:
-        serializedVersion: 2
-        x: 3680
-        y: 29
-        width: 37
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2609852b05901324085105a63b020117
-      internalID: 590134281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_39
-      rect:
-        serializedVersion: 2
-        x: 3778
-        y: 29
-        width: 33
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e5480cc16a1e764a893708cd8ce52a8
-      internalID: 657106006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_40
-      rect:
-        serializedVersion: 2
-        x: 3867
-        y: 29
-        width: 42
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba2a9a74f563c434ca1ff447eac86b53
-      internalID: 1529103042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_41
-      rect:
-        serializedVersion: 2
-        x: 3966
-        y: 29
-        width: 37
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df5b10c657a76d445b4497e641e68aac
-      internalID: -1838114463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_42
-      rect:
-        serializedVersion: 2
-        x: 4064
-        y: 29
-        width: 38
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc7ddd521b3ae0a4aa92cdd47b2a1635
-      internalID: 419346155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_43
-      rect:
-        serializedVersion: 2
-        x: 4158
-        y: 29
-        width: 37
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e698dc77a7a5c124d81342649d0a0e7b
-      internalID: -1848728860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_44
-      rect:
-        serializedVersion: 2
-        x: 4256
-        y: 29
-        width: 38
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b103971775c76ac4aa0c5dee47e6f810
-      internalID: -1908993234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_45
-      rect:
-        serializedVersion: 2
-        x: 4355
-        y: 29
-        width: 32
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06c99ba6f91644043b607930015d5c73
-      internalID: 457636688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_46
-      rect:
-        serializedVersion: 2
-        x: 4448
-        y: 29
-        width: 38
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd712448a7a3b5f47b3af084de6a87dd
-      internalID: -89646889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_47
-      rect:
-        serializedVersion: 2
-        x: 4547
-        y: 29
-        width: 33
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca3f2fbf1cc9245498f138f467f95100
-      internalID: -1346428314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_48
-      rect:
-        serializedVersion: 2
-        x: 4641
-        y: 29
-        width: 37
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f66deae5f6e85c4dbd59e587b63b2bc
-      internalID: 1014809531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_NecromancerIdle_strip50_49
-      rect:
-        serializedVersion: 2
-        x: 4739
-        y: 29
-        width: 33
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40b6b6ae13072c84584b5d896b7ed25e
-      internalID: 746705602
+      spriteID: d92f4bc2938fb6c45989c0673e140e6b
+      internalID: 2010240946
       vertices: []
       indices: 
       edges: []
@@ -1170,56 +1199,73 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_NecromancerIdle_strip50_0: -692717035
-      spr_NecromancerIdle_strip50_1: -677168811
-      spr_NecromancerIdle_strip50_10: 2029115320
-      spr_NecromancerIdle_strip50_11: 637705434
-      spr_NecromancerIdle_strip50_12: -147241260
-      spr_NecromancerIdle_strip50_13: -2022296269
-      spr_NecromancerIdle_strip50_14: 528073444
-      spr_NecromancerIdle_strip50_15: 18170304
-      spr_NecromancerIdle_strip50_16: -1485417638
-      spr_NecromancerIdle_strip50_17: -1191677455
-      spr_NecromancerIdle_strip50_18: 414615905
-      spr_NecromancerIdle_strip50_19: 467555903
-      spr_NecromancerIdle_strip50_2: -593689304
-      spr_NecromancerIdle_strip50_20: -1780482936
-      spr_NecromancerIdle_strip50_21: -745062346
-      spr_NecromancerIdle_strip50_22: 1316627211
-      spr_NecromancerIdle_strip50_23: 1170794118
-      spr_NecromancerIdle_strip50_24: -1690187618
-      spr_NecromancerIdle_strip50_25: -1354862001
-      spr_NecromancerIdle_strip50_26: 1345915269
-      spr_NecromancerIdle_strip50_27: -810475069
-      spr_NecromancerIdle_strip50_28: 1056437476
-      spr_NecromancerIdle_strip50_29: -1242228153
-      spr_NecromancerIdle_strip50_3: -903123356
-      spr_NecromancerIdle_strip50_30: -1746571810
-      spr_NecromancerIdle_strip50_31: -1092530057
-      spr_NecromancerIdle_strip50_32: -477829021
-      spr_NecromancerIdle_strip50_33: -867607908
-      spr_NecromancerIdle_strip50_34: 1956345357
-      spr_NecromancerIdle_strip50_35: 237945205
-      spr_NecromancerIdle_strip50_36: -1286029712
-      spr_NecromancerIdle_strip50_37: -1166143790
-      spr_NecromancerIdle_strip50_38: 590134281
-      spr_NecromancerIdle_strip50_39: 657106006
-      spr_NecromancerIdle_strip50_4: -766915251
-      spr_NecromancerIdle_strip50_40: 1529103042
-      spr_NecromancerIdle_strip50_41: -1838114463
-      spr_NecromancerIdle_strip50_42: 419346155
-      spr_NecromancerIdle_strip50_43: -1848728860
-      spr_NecromancerIdle_strip50_44: -1908993234
-      spr_NecromancerIdle_strip50_45: 457636688
-      spr_NecromancerIdle_strip50_46: -89646889
-      spr_NecromancerIdle_strip50_47: -1346428314
-      spr_NecromancerIdle_strip50_48: 1014809531
-      spr_NecromancerIdle_strip50_49: 746705602
-      spr_NecromancerIdle_strip50_5: 72969205
-      spr_NecromancerIdle_strip50_6: -1836176284
-      spr_NecromancerIdle_strip50_7: -582645838
-      spr_NecromancerIdle_strip50_8: 1899009028
-      spr_NecromancerIdle_strip50_9: 161683472
+      spr_NecromancerDeath_strip52_0: 1188092951
+      spr_NecromancerDeath_strip52_1: -886378876
+      spr_NecromancerDeath_strip52_10: -2049955535
+      spr_NecromancerDeath_strip52_11: 1408168615
+      spr_NecromancerDeath_strip52_12: -600562286
+      spr_NecromancerDeath_strip52_13: 1239125781
+      spr_NecromancerDeath_strip52_14: 392860934
+      spr_NecromancerDeath_strip52_15: -1568746780
+      spr_NecromancerDeath_strip52_16: -474448443
+      spr_NecromancerDeath_strip52_17: 279498868
+      spr_NecromancerDeath_strip52_18: -1290288528
+      spr_NecromancerDeath_strip52_19: -766645880
+      spr_NecromancerDeath_strip52_2: -574845914
+      spr_NecromancerDeath_strip52_20: 23770983
+      spr_NecromancerDeath_strip52_21: 1634804516
+      spr_NecromancerDeath_strip52_22: 1174323846
+      spr_NecromancerDeath_strip52_23: -710870291
+      spr_NecromancerDeath_strip52_24: 334940186
+      spr_NecromancerDeath_strip52_25: -900632392
+      spr_NecromancerDeath_strip52_26: -688868467
+      spr_NecromancerDeath_strip52_27: -787687696
+      spr_NecromancerDeath_strip52_28: -267168908
+      spr_NecromancerDeath_strip52_29: -1252997243
+      spr_NecromancerDeath_strip52_3: 1768097072
+      spr_NecromancerDeath_strip52_30: 1016191684
+      spr_NecromancerDeath_strip52_31: -796173769
+      spr_NecromancerDeath_strip52_32: -1332837148
+      spr_NecromancerDeath_strip52_33: 369213002
+      spr_NecromancerDeath_strip52_34: 1772058270
+      spr_NecromancerDeath_strip52_35: -2001798995
+      spr_NecromancerDeath_strip52_36: 1728989511
+      spr_NecromancerDeath_strip52_37: -480457889
+      spr_NecromancerDeath_strip52_38: 1883345472
+      spr_NecromancerDeath_strip52_39: 1685494167
+      spr_NecromancerDeath_strip52_4: -1516889256
+      spr_NecromancerDeath_strip52_40: 1745443813
+      spr_NecromancerDeath_strip52_41: -1334518324
+      spr_NecromancerDeath_strip52_42: -920858158
+      spr_NecromancerDeath_strip52_43: -177936860
+      spr_NecromancerDeath_strip52_44: 951128423
+      spr_NecromancerDeath_strip52_45: 1522543671
+      spr_NecromancerDeath_strip52_46: 1814882165
+      spr_NecromancerDeath_strip52_47: -1490669208
+      spr_NecromancerDeath_strip52_48: 709334782
+      spr_NecromancerDeath_strip52_49: 1891074766
+      spr_NecromancerDeath_strip52_5: -683605479
+      spr_NecromancerDeath_strip52_50: 953504630
+      spr_NecromancerDeath_strip52_51: -1775365904
+      spr_NecromancerDeath_strip52_52: 609921633
+      spr_NecromancerDeath_strip52_53: 577890802
+      spr_NecromancerDeath_strip52_54: -232755687
+      spr_NecromancerDeath_strip52_55: -55080776
+      spr_NecromancerDeath_strip52_56: -68487355
+      spr_NecromancerDeath_strip52_57: 1405282923
+      spr_NecromancerDeath_strip52_58: 472565539
+      spr_NecromancerDeath_strip52_59: -1359976610
+      spr_NecromancerDeath_strip52_6: 419507162
+      spr_NecromancerDeath_strip52_60: 1915675481
+      spr_NecromancerDeath_strip52_61: -1589434037
+      spr_NecromancerDeath_strip52_62: -845951348
+      spr_NecromancerDeath_strip52_63: 1585470414
+      spr_NecromancerDeath_strip52_64: 1062068443
+      spr_NecromancerDeath_strip52_65: 869750795
+      spr_NecromancerDeath_strip52_66: 2010240946
+      spr_NecromancerDeath_strip52_7: -1310274986
+      spr_NecromancerDeath_strip52_8: -2052331891
+      spr_NecromancerDeath_strip52_9: 1391408403
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
