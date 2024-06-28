@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 8781185152789349708}
   - component: {fileID: 6396408156532292927}
   - component: {fileID: 1496776652039068325}
-  - component: {fileID: 420797389489004383}
+  - component: {fileID: 2604674311820489501}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Enemy
@@ -243,7 +243,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &1496776652039068325
 MonoBehaviour:
@@ -254,7 +253,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134004415745001833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505c540940ca2354db55227a8566044f, type: 3}
+  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minX: -8.31
@@ -263,7 +262,8 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 1
---- !u!50 &420797389489004383
+  POINTS: 1
+--- !u!50 &2604674311820489501
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d386895b1561498689488245a8d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToPool: 5
+  amountToPool: 1
   el1Prefab: {fileID: 2134004415745001833}
   spawnInterval: 3
 --- !u!1 &4144119253303293720
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d386895b1561498689488245a8d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToPool: 5
+  amountToPool: 1
   el1Prefab: {fileID: 4693973507867095042}
   spawnInterval: 3
 --- !u!114 &7931678475342849906
@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 6377176260293760725}
   - component: {fileID: 5400342437388194770}
   - component: {fileID: 2523520684820885268}
+  - component: {fileID: 5739742757219822577}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Enemy
@@ -477,7 +478,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -692717035, guid: 8f9dfd76f39d86340926dcb77e4e70a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -602,7 +603,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &2523520684820885268
 MonoBehaviour:
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4693973507867095042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505c540940ca2354db55227a8566044f, type: 3}
+  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minX: -8.31
@@ -622,6 +622,34 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 2
+  POINTS: 2
+--- !u!50 &5739742757219822577
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693973507867095042}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &5831877782881205522
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d386895b1561498689488245a8d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToPool: 5
+  amountToPool: 1
   el1Prefab: {fileID: 5911178239327700724}
   spawnInterval: 3
 --- !u!114 &4033685222774659263
@@ -700,6 +728,7 @@ GameObject:
   - component: {fileID: 288595188567981873}
   - component: {fileID: 7378135884334467485}
   - component: {fileID: 1248092641406137099}
+  - component: {fileID: 855344692822016914}
   m_Layer: 0
   m_Name: Level3
   m_TagString: Enemy
@@ -887,7 +916,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 475504ac44a54cb4b8c00efd28331907, type: 2}
   - {fileID: 11400000, guid: 5caa4c8d02faa15468a608480446b93f, type: 2}
   - {fileID: 11400000, guid: ddc1cddaf8573194db79d621d756d069, type: 2}
-  - {fileID: 11400000, guid: 67804954be8430d4aa4401dce3e4be8b, type: 2}
   - {fileID: 11400000, guid: fce2de84705b40240ade16877cf4d466, type: 2}
 --- !u!114 &1248092641406137099
 MonoBehaviour:
@@ -898,7 +926,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5911178239327700724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505c540940ca2354db55227a8566044f, type: 3}
+  m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minX: -8.31
@@ -907,6 +935,34 @@ MonoBehaviour:
   maxY: -1.42
   speed: 2
   damageTouch: 3
+  POINTS: 3
+--- !u!50 &855344692822016914
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911178239327700724}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &364171340433093167
 PrefabInstance:
   m_ObjectHideFlags: 0

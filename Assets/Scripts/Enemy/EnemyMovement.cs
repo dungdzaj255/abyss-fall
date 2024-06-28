@@ -17,7 +17,10 @@ public class EnemyMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     public float damageTouch;
+    [SerializeField]
+    public int POINTS;
     private Vector3 lastPosition;
+    private bool isMovingBack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,11 @@ public class EnemyMovement : MonoBehaviour
         if (enemyHealth.GetCurrentHealth() <= 0)
         {
             speed = 0;
+        }
+        if (isMovingBack)
+        {
+            targetPosition = -targetPosition;
+            isMovingBack = false;
         }
         // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -81,6 +89,14 @@ public class EnemyMovement : MonoBehaviour
             //    playerHealth.TakeDamage(damageAmount);
             //}
         }
+        else if (collision.gameObject.tag == "Platform")
+        {
+            FlipDirection();
+        }
 
+    }
+    void FlipDirection()
+    {
+        isMovingBack = true;
     }
 }

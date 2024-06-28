@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -35,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         gameObject.SetActive(false);
         currentHealth = maxHealth;
         GetComponent<ItemBag>().InstantiateItem(transform.position);
-        //ScoreController.Instance.AddPoint();
+        PointSystem.instance.AddPoint(gameObject.GetComponent<EnemyMovement>().POINTS);
     }
     public float GetCurrentHealth()
     {
