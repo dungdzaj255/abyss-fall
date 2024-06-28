@@ -47,9 +47,9 @@ public class LootItemPrefab : MonoBehaviour
                 case "Bullet speed":
                     Weapon.Instance.AddBulletSpeed(BULLET_SPEED);
                     break;
-                case "Points":
-                    PointSystem.instance.AddPoint(POINTS);
-                    break;
+                //case "Points":
+                //    PointSystem.instance.AddPoint(POINTS);
+                //    break;
                 default:
                     break;
             }
