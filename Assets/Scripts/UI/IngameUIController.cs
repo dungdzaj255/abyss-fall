@@ -26,6 +26,7 @@ public class IngameUIController : MonoBehaviour {
 
     private void Start() {
         pointCounter.transform.position = pointCounter_position_default.transform.position;
+        pausedMenu.gameObject.SetActive(false);
     }
 
     public void Init() {
@@ -60,7 +61,6 @@ public class IngameUIController : MonoBehaviour {
     public void handlePause() {
         if (!isPaused) {
             pausedBtn.GetComponent<Image>().sprite = pausedBtn_sprite;
-            pausedMenu.gameObject.transform.position = new Vector2(pausedMenu.transform.position.x, 300);
             pausedMenu.gameObject.SetActive(true);
             pointCounter.transform.position = pointCounter_position_on_menu.transform.position;
 
