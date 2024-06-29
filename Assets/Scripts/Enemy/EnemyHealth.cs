@@ -33,10 +33,28 @@ public class EnemyHealth : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
-        currentHealth = maxHealth;
-        GetComponent<ItemBag>().InstantiateItem(transform.position);
-        PointSystem.instance.AddPoint(gameObject.GetComponent<EnemyMovement>().POINTS);
+
+        if (gameObject != null)
+        {
+            gameObject.SetActive(false);
+            currentHealth = maxHealth;
+            GetComponent<ItemBag>().InstantiateItem(transform.position);
+
+            if (PointSystem.instance != null && GetComponent<EnemyMovement>() != null)
+            {
+                PointSystem.instance.AddPoint(gameObject.GetComponent<EnemyMovement>().POINTS);
+            }
+
+            if (GetComponent<EnemySpawner>() != null)
+            {
+                GetComponent<EnemySpawner>().IncreaseDeadCount();
+            }
+
+            if (GetComponent<EnemyMovement>() != null)
+            {
+                GetComponent<EnemyMovement>().EnableAttacking(false);
+            }
+        }
     }
     public float GetCurrentHealth()
     {

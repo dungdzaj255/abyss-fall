@@ -21,12 +21,24 @@ public class EnemyMovement : MonoBehaviour
     public int POINTS;
     private Vector3 lastPosition;
     private bool isMovingBack = false;
+    [SerializeField]
+    private bool isAbleAttack = false;
+    [SerializeField]
+    private bool isMoving = false;
+    [SerializeField]
+    private EnemyAttackPool attackPool;
+    [SerializeField]
+    private float attackInterval = 2.5f;
+    private float timer = 0f;
+    private int currentAttackCount = 1;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetRandomTargetPosition();
         lastPosition = transform.position;
+
     }
 
     // Update is called once per frame
@@ -34,9 +46,10 @@ public class EnemyMovement : MonoBehaviour
     {
         MoveToTargetPosition();
         CheckDirectionAndFlip();
+
     }
 
-    void SetRandomTargetPosition()
+    public void SetRandomTargetPosition()
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
@@ -49,7 +62,11 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyHealth.GetCurrentHealth() <= 0)
         {
-            speed = 0;
+            isMoving = false;
+        }
+        else if(enemyHealth.GetCurrentHealth() >= 1)
+        {
+            isMoving = true;
         }
         if (isMovingBack)
         {
@@ -99,4 +116,34 @@ public class EnemyMovement : MonoBehaviour
     {
         isMovingBack = true;
     }
+    public void EnableAttacking(bool enable)
+    {
+        isAbleAttack = enable;
+    }
+
+    public IEnumerator SpawnAttack(int deadCount)
+    {
+        deadCount = currentAttackCount;
+
+        while (isAbleAttack)
+        {
+            yield return new WaitForSeconds(attackInterval);
+            for (int i = 0; i < currentAttackCount; i++)
+            {
+                if (isAbleAttack == true)
+                {
+                    GameObject attack = attackPool.GetPooledObject();
+                    if (attack != null)
+                    {
+                        attack.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+                        attack.SetActive(true);
+                    }
+                }
+                yield return null;
+            }
+
+        }
+    }
+
+
 }
