@@ -54,5 +54,6 @@ public class EnemyAttackPool : MonoBehaviour
         enemyAttack.SetActive(false);
         enemyAttack.transform.position = Vector3.zero;
         enemyAttackObjects.Add(enemyAttack);
+
     }
 }
