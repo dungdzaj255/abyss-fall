@@ -9,6 +9,8 @@ public class LootItemPrefab : MonoBehaviour
     static private float SMALL_HEALTH = 3f;
     static private float LARGE_HEALTH = 8f;
     static private float BULLET_SPEED = 1f;
+    [SerializeField]
+    private int POINTS;
 
     void Start()
     {
@@ -32,30 +34,22 @@ public class LootItemPrefab : MonoBehaviour
             {
                 case "Small bandage":
                     Player.Instance.AddHealth(SMALL_HEALTH);
-                    Debug.Log($"Add health +{SMALL_HEALTH}");
                     break;
                 case "Large bandage":
                     Player.Instance.AddHealth(LARGE_HEALTH);
-                    Debug.Log($"Add health +{LARGE_HEALTH}");
                     break;
                 case "Damage":
                     Weapon.Instance.AddDamage(DAMAGE);
-                    Debug.Log($"Add damage +{DAMAGE}");
                     break;
                 case "Bullet":
                     Weapon.Instance.AddBullet();
-                    Debug.Log($"Add bullet amount +1");
                     break;
                 case "Bullet speed":
                     Weapon.Instance.AddBulletSpeed(BULLET_SPEED);
-                    Debug.Log($"Add bullet speed +{BULLET_SPEED}");
                     break;
-                case "Points":
-                    //UIController.Instance.AddPoint();
-                    //Add Point
-                    PointSystem.instance.AddPoint(1);
-                    Debug.Log($"Add bullet speed +{BULLET_SPEED}");
-                    break;
+                //case "Points":
+                //    PointSystem.instance.AddPoint(POINTS);
+                //    break;
                 default:
                     break;
             }
