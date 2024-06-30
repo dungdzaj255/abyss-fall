@@ -11,50 +11,55 @@ public class GeneratePlatform : MonoBehaviour
     public int maxTilemapsPerLine = 3; // Maximum number of tilemaps per line
     public float distanceBetweenTilemaps = 1f; // Vertical distance between each generated Tilemap
     public int maxWidth = 5; // Maximum width of generated Tilemaps
+    public Transform player; // Reference to the player
+    public float scrollSpeed = 2f; // Speed at which platforms scroll up
+
+    private Vector3 initialPlayerPosition;
 
     void Start()
     {
+        initialPlayerPosition = player.position;
         GeneratePlatforms();
+    }
+
+    void Update()
+    {
+        if (player.position.y < initialPlayerPosition.y)
+        {
+            Vector3 move = new Vector3(0, scrollSpeed * Time.deltaTime, 0);
+            platformTilemap.transform.position += move;
+        }
     }
 
     void GeneratePlatforms()
     {
-        // Get the bottom-left corner of the platformTilemap
         Vector3Int platformPosition = platformTilemap.origin;
-
-        // Start generating from just below the platformTilemap
-        Vector3Int currentPosition = platformPosition - new Vector3Int(0, 1, 0); // Adjust based on your Tilemap's cell size and layout
+        Vector3Int currentPosition = platformPosition - new Vector3Int(0, 1, 0);
 
         for (int line = 0; line < linesToGenerate; line++)
         {
-            int numOfTilemapsToGenerate = Random.Range(minTilemapsPerLine, maxTilemapsPerLine + 1); // Generate between min and max Tilemaps per line
+            int numOfTilemapsToGenerate = Random.Range(minTilemapsPerLine, maxTilemapsPerLine + 1);
             int prefabIndex = Random.Range(0, platformTilemapPrefabs.Length);
             Tilemap prefabTilemap = platformTilemapPrefabs[prefabIndex];
 
             for (int i = 0; i < numOfTilemapsToGenerate; i++)
             {
-                // Adjust width if it exceeds maxWidth
                 if (prefabTilemap.size.x > maxWidth)
                 {
                     Debug.LogWarning($"Tilemap prefab {prefabTilemap.name} width exceeds maxWidth. Adjusting width.");
                     prefabTilemap.size = new Vector3Int(maxWidth, prefabTilemap.size.y, prefabTilemap.size.z);
                 }
 
-                // Calculate horizontal offset to place Tilemap in a line under platformTilemap
-                int xOffset = i * (maxWidth + 1); // Adjust spacing as needed
-
-                // Place prefab Tilemap at the current position
+                int xOffset = i * (maxWidth + 1);
                 PlaceTilemap(prefabTilemap, currentPosition + new Vector3Int(xOffset, 0, 0));
             }
 
-            // Update current position for the next line of Tilemaps (move downward)
-            currentPosition -= new Vector3Int(0, prefabTilemap.size.y + (int)distanceBetweenTilemaps, 0); // Adjust spacing as needed
+            currentPosition -= new Vector3Int(0, prefabTilemap.size.y + (int)distanceBetweenTilemaps, 0);
         }
     }
 
     void PlaceTilemap(Tilemap tilemapPrefab, Vector3Int position)
     {
-        // Iterate through all cells in the prefab Tilemap and place them onto the main platformTilemap
         BoundsInt bounds = tilemapPrefab.cellBounds;
         TileBase[] allTiles = tilemapPrefab.GetTilesBlock(bounds);
 
