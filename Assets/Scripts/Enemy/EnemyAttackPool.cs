@@ -32,6 +32,7 @@ public class EnemyAttackPool : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
+
             GameObject obj = Instantiate(enemyAttackPrefab);
             obj.SetActive(false);
             enemyAttackObjects.Add(obj);
@@ -40,6 +41,7 @@ public class EnemyAttackPool : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
+
         for (int i = 0; i < enemyAttackObjects.Count; i++)
         {
             if (!enemyAttackObjects[i].activeInHierarchy)
