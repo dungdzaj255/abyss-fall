@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject el1Prefab;
     [SerializeField] private float spawnInterval = 3f;
     private float spawnTimer;
+    private int deadCount=1;
     private void Awake()
     {
         if (instance == null)
@@ -47,12 +48,20 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = GetFixedSpawnPosition();
             enemy.transform.position = spawnPosition;
             enemy.SetActive(true);
+            
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.ResetEnemyHealth();
+                enemy.GetComponent<EnemyMovement>().EnableAttacking(true);
+                StartCoroutine(enemy.GetComponent<EnemyMovement>().SpawnAttack(deadCount));
             }
+
         }
+    }
+    public void IncreaseDeadCount()
+    {
+        deadCount++;
     }
 
     public GameObject GetPooledEnemy()
@@ -68,6 +77,6 @@ public class EnemySpawner : MonoBehaviour
     }
     Vector3 GetFixedSpawnPosition()
     {
-        return new Vector3(-1.18f, -6.0f, -0.03689937f);
+        return new Vector3(-0.4f, -3.36f, -0.03689937f);
     }
 }
