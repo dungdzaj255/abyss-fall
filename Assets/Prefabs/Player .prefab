@@ -194,8 +194,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00166119, y: -0.43034756}
-  m_Size: {x: 0.6596455, y: 0.11720981}
+  m_Offset: {x: 0.0066440497, y: -0.43034756}
+  m_Size: {x: 0.47691274, y: 0.11720981}
   m_Direction: 1
 --- !u!114 &4723719907355847221
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   jumpPower: 5
   headDamage: 100
   maxHealth: 100
-  knockbackForce: 5
+  bounceForce: 5
   rb: {fileID: 3297753782259716757}
   animator: {fileID: 1859676438463980731}
 --- !u!95 &1859676438463980731
