@@ -32,13 +32,16 @@ public class EnemyMovement : MonoBehaviour
     private float timer = 0f;
     private int currentAttackCount = 1;
 
-
     // Start is called before the first frame update
     void Start()
     {
         SetRandomTargetPosition();
         lastPosition = transform.position;
 
+        if (attackPool == null)
+        {
+            Debug.LogError("attackPool is not assigned in " + gameObject.name);
+        }
     }
 
     // Update is called once per frame
@@ -46,7 +49,6 @@ public class EnemyMovement : MonoBehaviour
     {
         MoveToTargetPosition();
         CheckDirectionAndFlip();
-
     }
 
     public void SetRandomTargetPosition()
@@ -64,7 +66,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isMoving = false;
         }
-        else if(enemyHealth.GetCurrentHealth() >= 1)
+        else if (enemyHealth.GetCurrentHealth() >= 1)
         {
             isMoving = true;
         }
@@ -132,18 +134,27 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (isAbleAttack == true)
                 {
+                    Debug.Log("1");
+
+                    if (attackPool == null)
+                    {
+                        Debug.LogError("attackPool is not assigned!");
+                        yield break; 
+                    }
+
                     GameObject attack = attackPool.GetPooledObject();
+                    Debug.Log("2");
                     if (attack != null)
                     {
+                        Debug.Log("3");
                         attack.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+                        Debug.Log("4");
                         attack.SetActive(true);
+                        Debug.Log("5");
                     }
                 }
                 yield return null;
             }
-
         }
     }
-
-
 }
