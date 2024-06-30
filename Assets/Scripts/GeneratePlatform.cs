@@ -10,6 +10,7 @@ public class GeneratePlatform : MonoBehaviour
     public int minTilemapsPerLine = 1; // Minimum number of tilemaps per line
     public int maxTilemapsPerLine = 3; // Maximum number of tilemaps per line
     public float distanceBetweenTilemaps = 1f; // Vertical distance between each generated Tilemap
+    public float distanceReductionPerLine = 0.1f; // Amount to reduce the distance between each line
     public int maxWidth = 5; // Maximum width of generated Tilemaps
     public Transform player; // Reference to the player
     public float scrollSpeed = 2f; // Speed at which platforms scroll up
@@ -35,6 +36,7 @@ public class GeneratePlatform : MonoBehaviour
     {
         Vector3Int platformPosition = platformTilemap.origin;
         Vector3Int currentPosition = platformPosition - new Vector3Int(0, 1, 0);
+        float currentDistanceBetweenTilemaps = distanceBetweenTilemaps;
 
         for (int line = 0; line < linesToGenerate; line++)
         {
@@ -54,7 +56,10 @@ public class GeneratePlatform : MonoBehaviour
                 PlaceTilemap(prefabTilemap, currentPosition + new Vector3Int(xOffset, 0, 0));
             }
 
-            currentPosition -= new Vector3Int(0, prefabTilemap.size.y + (int)distanceBetweenTilemaps, 0);
+            currentPosition -= new Vector3Int(0, prefabTilemap.size.y + (int)currentDistanceBetweenTilemaps, 0);
+
+            // Reduce the distance between tilemaps for the next line
+            currentDistanceBetweenTilemaps = Mathf.Max(0, currentDistanceBetweenTilemaps - distanceReductionPerLine);
         }
     }
 
