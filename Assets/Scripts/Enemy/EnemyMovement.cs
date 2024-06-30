@@ -128,6 +128,9 @@ public class EnemyMovement : MonoBehaviour
         while (isAbleAttack)
         {
             yield return new WaitForSeconds(attackInterval);
+            GetComponent<Animator>().SetBool("IsAttacking", true);
+
+
             for (int i = 0; i < currentAttackCount; i++)
             {
                 if (isAbleAttack == true)
@@ -142,8 +145,14 @@ public class EnemyMovement : MonoBehaviour
                 yield return null;
             }
 
+            // Set IsAttacking to false after the attack cycle
+            GetComponent<Animator>().SetBool("IsAttacking", false);
+
+            // Wait for the attack interval before starting the next attack cycle
+            yield return new WaitForSeconds(attackInterval);
         }
     }
+
 
 
 }
