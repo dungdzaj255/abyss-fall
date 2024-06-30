@@ -76,7 +76,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isMoving = false;
         }
-        else if(enemyHealth.GetCurrentHealth() >= 1)
+        else if (enemyHealth.GetCurrentHealth() >= 1)
         {
             isMoving = true;
         }
