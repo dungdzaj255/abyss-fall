@@ -598,12 +598,13 @@ MonoBehaviour:
   - {fileID: 5816372760467947833, guid: 89036edd6de684b4abaad76c34389206, type: 3}
   - {fileID: 8074717386495018381, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
   linesToGenerate: 10
-  minTilemapsPerLine: 1
+  minTilemapsPerLine: 2
   maxTilemapsPerLine: 3
   distanceBetweenTilemaps: 5
+  distanceReductionPerLine: 0.1
   maxWidth: 10
   player: {fileID: 1674477672}
-  scrollSpeed: 2
+  scrollSpeed: 3
 --- !u!4 &257404576
 Transform:
   m_ObjectHideFlags: 0
@@ -750,7 +751,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.81, y: -2.52, z: -10}
+  m_LocalPosition: {x: 1.81, y: -1.06, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6736,7 +6737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1674477672}
-  parallaxEffectMultiplier: 0.5
+  parallaxEffectMultiplier: 1
 --- !u!1 &931559011
 GameObject:
   m_ObjectHideFlags: 0

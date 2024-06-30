@@ -7,7 +7,7 @@ public class GeneratePlatform : MonoBehaviour
     public Tilemap[] platformTilemapPrefabs; // Array of Tilemap prefabs
 
     public int linesToGenerate = 3; // Number of lines of tilemaps to generate
-    public int minTilemapsPerLine = 1; // Minimum number of tilemaps per line
+    public int minTilemapsPerLine = 2; // Minimum number of tilemaps per line
     public int maxTilemapsPerLine = 3; // Maximum number of tilemaps per line
     public float distanceBetweenTilemaps = 1f; // Vertical distance between each generated Tilemap
     public float distanceReductionPerLine = 0.1f; // Amount to reduce the distance between each line
