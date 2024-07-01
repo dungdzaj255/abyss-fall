@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
 
     /* bulletbar */
     [SerializeField] private Bar bulletAmountBar;
-
+    [SerializeField] private BulletCountUI bulletCountUI;
     //======================
     private SpriteRenderer spriteRenderer;
     [SerializeField]
@@ -54,6 +54,8 @@ public class Weapon : MonoBehaviour
         } else {
             bulletAmountBar.SetText(bulletAmount + "");
         }
+
+        bulletCountUI.Init(bulletAmount, currentBulletAmount);
         //======================
         if (Instance == null)
         {
