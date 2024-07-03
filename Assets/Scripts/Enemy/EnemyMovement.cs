@@ -28,7 +28,6 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAttackPool attackPool;
     [SerializeField]
     private float attackInterval = 2.5f;
-    private float timer = 0f;
     private int currentAttackCount = 1;
 
 
@@ -38,7 +37,6 @@ public class EnemyMovement : MonoBehaviour
     {
         SetRandomTargetPosition();
         lastPosition = transform.position;
-        Debug.Log(transform.name);
         if (transform.name.Equals("Level1(Clone)"))
         {
             attackPool = GameObject.Find("EL1Pool").GetComponent<EnemyAttackPool>();
