@@ -25,7 +25,6 @@ public class EnemyMovement : MonoBehaviour
     private bool isAbleAttack = false;
     [SerializeField]
     private bool isMoving = false;
-    [SerializeField]
     private EnemyAttackPool attackPool;
     [SerializeField]
     private float attackInterval = 2.5f;
@@ -34,11 +33,24 @@ public class EnemyMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
+
     void Start()
     {
         SetRandomTargetPosition();
         lastPosition = transform.position;
-
+        Debug.Log(transform.name);
+        if (transform.name.Equals("Level1(Clone)"))
+        {
+            attackPool = GameObject.Find("EL1Pool").GetComponent<EnemyAttackPool>();
+        }
+        else if (transform.name.Equals("Level2(Clone)"))
+        {
+            attackPool = GameObject.Find("EL2Pool").GetComponent<EnemyAttackPool>();
+        }
+        else if (transform.name.Equals("Level3(Clone)"))
+        {
+            attackPool = GameObject.Find("EL3Pool").GetComponent<EnemyAttackPool>();
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +76,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isMoving = false;
         }
-        else if(enemyHealth.GetCurrentHealth() >= 1)
+        else if (enemyHealth.GetCurrentHealth() >= 1)
         {
             isMoving = true;
         }
@@ -97,16 +109,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            //Debug.Log("Enemy lv1 va cham voi Player");
-            //PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            //if (playerHealth != null)
-            //{
-            //    playerHealth.TakeDamage(damageAmount);
-            //}
-        }
-        else if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
             FlipDirection();
         }
@@ -128,10 +131,12 @@ public class EnemyMovement : MonoBehaviour
         while (isAbleAttack)
         {
             yield return new WaitForSeconds(attackInterval);
+            GetComponent<Animator>().SetBool("IsAttacking", true);
             for (int i = 0; i < currentAttackCount; i++)
             {
                 if (isAbleAttack == true)
                 {
+
                     GameObject attack = attackPool.GetPooledObject();
                     if (attack != null)
                     {
@@ -142,8 +147,14 @@ public class EnemyMovement : MonoBehaviour
                 yield return null;
             }
 
+            // Set IsAttacking to false after the attack cycle
+            GetComponent<Animator>().SetBool("IsAttacking", false);
+
+            // Wait for the attack interval before starting the next attack cycle
+            yield return new WaitForSeconds(attackInterval);
         }
     }
+
 
 
 }
