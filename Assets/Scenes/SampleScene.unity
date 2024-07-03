@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPrefabs:
   - prefab: {fileID: 7850479009277658897, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
-    initialPoolSize: 6
+    initialPoolSize: 10
   - prefab: {fileID: 4678868012114195233, guid: 89036edd6de684b4abaad76c34389206, type: 3}
     initialPoolSize: 10
   - prefab: {fileID: 6403156551846026225, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
