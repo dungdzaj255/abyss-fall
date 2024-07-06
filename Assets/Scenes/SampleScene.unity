@@ -158,6 +158,10 @@ MonoBehaviour:
     initialPoolSize: 10
   - prefab: {fileID: 6403156551846026225, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
     initialPoolSize: 10
+  - prefab: {fileID: 6403156551846026225, guid: f44aad6ee9843e34e8b100fcb2f231b1, type: 3}
+    initialPoolSize: 10
+  - prefab: {fileID: 6403156551846026225, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
+    initialPoolSize: 10
 --- !u!4 &2618250
 Transform:
   m_ObjectHideFlags: 0
@@ -6847,6 +6851,8 @@ MonoBehaviour:
   - {fileID: 376152009623047355, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
   - {fileID: 5816372760467947833, guid: 89036edd6de684b4abaad76c34389206, type: 3}
   - {fileID: 8074717386495018381, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
+  - {fileID: 8074717386495018381, guid: f44aad6ee9843e34e8b100fcb2f231b1, type: 3}
+  - {fileID: 8074717386495018381, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
   minTilemapsPerLine: 2
   maxTilemapsPerLine: 3
   distanceBetweenTilemaps: 1
