@@ -162,6 +162,12 @@ MonoBehaviour:
     initialPoolSize: 10
   - prefab: {fileID: 6403156551846026225, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
     initialPoolSize: 10
+  - prefab: {fileID: 6403156551846026225, guid: 8d9586e84704cf248a0c27334b63ac26, type: 3}
+    initialPoolSize: 10
+  - prefab: {fileID: 6403156551846026225, guid: ea6489a7009bd6b48a0bcf5c5d5e5217, type: 3}
+    initialPoolSize: 10
+  - prefab: {fileID: 6403156551846026225, guid: 261e061f385247340a809431a1efddb4, type: 3}
+    initialPoolSize: 10
 --- !u!4 &2618250
 Transform:
   m_ObjectHideFlags: 0
@@ -7347,13 +7353,16 @@ MonoBehaviour:
   - {fileID: 8074717386495018381, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
   - {fileID: 8074717386495018381, guid: f44aad6ee9843e34e8b100fcb2f231b1, type: 3}
   - {fileID: 8074717386495018381, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
+  - {fileID: 8074717386495018381, guid: 8d9586e84704cf248a0c27334b63ac26, type: 3}
+  - {fileID: 8074717386495018381, guid: ea6489a7009bd6b48a0bcf5c5d5e5217, type: 3}
+  - {fileID: 8074717386495018381, guid: 261e061f385247340a809431a1efddb4, type: 3}
   minTilemapsPerLine: 2
   maxTilemapsPerLine: 3
   distanceBetweenTilemaps: 1
   distanceReductionPerLine: 0.1
   maxWidth: 5
   player: {fileID: 1674477672}
-  scrollSpeed: 4
+  scrollSpeed: 5
 --- !u!4 &1339292643
 Transform:
   m_ObjectHideFlags: 0
