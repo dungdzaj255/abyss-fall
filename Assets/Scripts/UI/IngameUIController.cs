@@ -16,6 +16,7 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Transform mutedBtn;
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
+    [SerializeField] private Transform gameOverMenu;
     [SerializeField] private Transform pointCounter;
     [SerializeField] private Transform pointCounter_position_default;
     [SerializeField] private Transform pointCounter_position_on_menu;
@@ -23,6 +24,7 @@ public class IngameUIController : MonoBehaviour {
     public bool isMuted = false;
     public bool isPaused = false;
     private Vector2 defaultPosition_pointCounter;
+    private Player player;
 
     private void Start() {
         pointCounter.transform.position = pointCounter_position_default.transform.position;
@@ -36,6 +38,7 @@ public class IngameUIController : MonoBehaviour {
             isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
         } catch (FormatException) {
         }
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         pointCounter.transform.position = defaultPosition_pointCounter;
     }
 
@@ -46,6 +49,12 @@ public class IngameUIController : MonoBehaviour {
             mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
             mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
+        }
+    }
+
+    private void Update() {
+        if (player.GetCurrentHealth() <= 0 ) {
+            GameOver();
         }
     }
 
@@ -89,5 +98,11 @@ public class IngameUIController : MonoBehaviour {
         SceneManager.LoadSceneAsync(0);
         PlayerPrefs.SetString("isPaused", isPaused.ToString());
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
+    }
+
+    public void GameOver() {
+        Time.timeScale = 0f;
+        gameOverMenu.gameObject.SetActive(true);
+        pointCounter.transform.position = pointCounter_position_on_menu.transform.position;
     }
 }

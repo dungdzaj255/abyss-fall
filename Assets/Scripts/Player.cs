@@ -162,4 +162,8 @@ public class Player : MonoBehaviour
             animator.SetBool("takeDamage", false);
         }
     }
+
+    public float GetCurrentHealth() {
+        return currentHealth;
+    }
 }

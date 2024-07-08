@@ -7309,6 +7309,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIIngame_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6410257911182020758, guid: 26bf981f4b267594a850f20a01217fcc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978623310637875902, guid: 26bf981f4b267594a850f20a01217fcc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000007391
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978623310637875902, guid: 26bf981f4b267594a850f20a01217fcc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000038147
+      objectReference: {fileID: 0}
     - target: {fileID: 8118823534600912654, guid: 26bf981f4b267594a850f20a01217fcc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
