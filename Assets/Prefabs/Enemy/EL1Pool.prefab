@@ -48,6 +48,9 @@ MonoBehaviour:
   amountToPool: 1
   el1Prefab: {fileID: 3432618877570678165, guid: 37f6db41908617a4dae42a27f36a851d, type: 3}
   spawnInterval: 3
+  spawnPoints:
+  - {fileID: 3866489975212660843, guid: 47956d1bc04ad214f804aeeb0b9df543, type: 3}
+  - {fileID: 7109819479249464577, guid: 0d1904ee665264e4db3bae7cd81fdab1, type: 3}
 --- !u!114 &6948757549693999490
 MonoBehaviour:
   m_ObjectHideFlags: 0
