@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int amountToPool = 5;
     [SerializeField] private GameObject el1Prefab;
     [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private Transform[] spawnPoints;
     private float spawnTimer;
     private int deadCount=1;
     private void Awake()
@@ -77,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
     }
     Vector3 GetFixedSpawnPosition()
     {
-        return new Vector3(-0.4f, -3.36f, -0.03689937f);
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        return spawnPoints[randomIndex].position;
     }
 }
