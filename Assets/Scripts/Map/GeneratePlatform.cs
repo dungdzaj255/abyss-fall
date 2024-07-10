@@ -4,24 +4,31 @@ using UnityEngine.Tilemaps;
 public class GeneratePlatform : MonoBehaviour
 {
     public Tilemap platformTilemap;
-    public PlatformObjectPool platformObjectPool; // Reference to your platform object pool
-    public Tilemap[] platformTilemapPrefabs; // Array of Tilemap prefabs
+    public Tilemap[] platformTilemapPrefabs;
 
-    public int minTilemapsPerLine = 3; // Minimum number of tilemaps per line
-    public int maxTilemapsPerLine = 3; // Maximum number of tilemaps per line
-    public float distanceBetweenTilemaps = 1f; // Vertical distance between each generated Tilemap
-    public float distanceReductionPerLine = 0.1f; // Amount to reduce the distance between each line
-    public int maxWidth = 7; // Maximum width of generated Tilemaps
-    public Transform player; // Reference to the player
-    public float scrollSpeed = 5f; // Speed at which platforms scroll up
+    public int minTilemapsPerLine = 3;
+    public int maxTilemapsPerLine = 3;
+    public float initialDistanceBetweenTilemaps = 1f; // Initial distance between tilemaps
+    public float minDistanceBetweenTilemaps = 0.2f; // Minimum distance between tilemaps
+    public float distanceReductionPerLine = 0.1f;
+    public int maxWidth = 7;
+    public Transform player;
+    public float scrollSpeed = 5f;
 
     private Vector3 initialPlayerPosition;
     private Vector3Int lastGeneratedPosition;
+    private float totalDistanceGenerated;
+    private float distanceBetweenTilemaps;
+
+    private bool hasGeneratedInitialPlatforms = false;
+    private bool generateNextLines = true;
+    private int linesToGenerate = 5; // Number of lines to generate below the last line
 
     void Start()
     {
         initialPlayerPosition = player.position;
-        lastGeneratedPosition = platformTilemap.origin - new Vector3Int(0, 1, 0); // Start just below the initial origin
+        lastGeneratedPosition = platformTilemap.origin - new Vector3Int(0, 1, 0);
+        distanceBetweenTilemaps = initialDistanceBetweenTilemaps;
     }
 
     void Update()
@@ -31,26 +38,38 @@ public class GeneratePlatform : MonoBehaviour
             Vector3 move = new Vector3(0, scrollSpeed * Time.deltaTime, 0);
             platformTilemap.transform.position += move;
 
-            // Check if we need to generate more platforms below
-            float distanceToGenerate = Mathf.Abs(player.position.y - initialPlayerPosition.y);
-            while (distanceToGenerate > distanceBetweenTilemaps)
+            float distanceTraveled = initialPlayerPosition.y - player.position.y;
+
+            // Check if we need to generate more platforms
+            if (generateNextLines && distanceTraveled > totalDistanceGenerated + distanceBetweenTilemaps)
             {
-                GeneratePlatforms();
-                distanceToGenerate -= distanceBetweenTilemaps;
+                for (int line = 0; line < linesToGenerate; line++)
+                {
+                    GeneratePlatforms();
+                    totalDistanceGenerated += distanceBetweenTilemaps;
+                }
+                generateNextLines = false; // Prevent further generation until the player reaches the last line
             }
+
+            // Remove platforms above camera view
+            RemovePlatformsAboveCamera();
+        }
+        else
+        {
+            // If player jumps back up, reset total distance generated and allow next line generation
+            totalDistanceGenerated = 0f;
+            generateNextLines = true;
         }
     }
 
     void GeneratePlatforms()
     {
         Vector3Int currentPosition = lastGeneratedPosition;
-        float currentDistanceBetweenTilemaps = distanceBetweenTilemaps;
 
         int numOfTilemapsToGenerate = Random.Range(minTilemapsPerLine, maxTilemapsPerLine + 1);
 
         for (int i = 0; i < numOfTilemapsToGenerate; i++)
         {
-            // Get a random tilemap prefab
             int prefabIndex = Random.Range(0, platformTilemapPrefabs.Length);
             Tilemap prefabTilemap = platformTilemapPrefabs[prefabIndex];
 
@@ -60,21 +79,22 @@ public class GeneratePlatform : MonoBehaviour
                 prefabTilemap.size = new Vector3Int(maxWidth, prefabTilemap.size.y, prefabTilemap.size.z);
             }
 
-            // Calculate starting X position based on tilemap size and alignment
             int startX = currentPosition.x + (platformTilemap.size.x - prefabTilemap.size.x) / 2;
-            int xOffset = i * (maxWidth + 1); // Adjust as needed
+            int xOffset = i * (maxWidth + 1);
             Vector3Int platformPosition = new Vector3Int(startX + xOffset, currentPosition.y, currentPosition.z);
 
-            // Example: Ensure platform aligns properly with tilemap grid
-            platformPosition.x = Mathf.RoundToInt(platformPosition.x); // Round to nearest integer
+            platformPosition.x = Mathf.RoundToInt(platformPosition.x);
 
             PlaceTilemap(prefabTilemap, platformPosition);
         }
 
-        lastGeneratedPosition -= new Vector3Int(0, platformTilemapPrefabs[0].size.y + Mathf.RoundToInt(currentDistanceBetweenTilemaps), 0);
+        // Adjust position for next line of platforms
+        lastGeneratedPosition -= new Vector3Int(0, platformTilemapPrefabs[0].size.y + Mathf.RoundToInt(distanceBetweenTilemaps), 0);
 
-        // Reduce the distance between tilemaps for the next line
-        currentDistanceBetweenTilemaps = Mathf.Max(0, currentDistanceBetweenTilemaps - distanceReductionPerLine);
+        // Reduce distance between platforms for next line
+        distanceBetweenTilemaps = Mathf.Max(minDistanceBetweenTilemaps, distanceBetweenTilemaps - distanceReductionPerLine);
+
+        hasGeneratedInitialPlatforms = true; // Mark that initial platforms have been generated
     }
 
     void PlaceTilemap(Tilemap tilemapPrefab, Vector3Int position)
@@ -93,6 +113,27 @@ public class GeneratePlatform : MonoBehaviour
                 {
                     Vector3Int tilePosition = new Vector3Int(position.x + x, position.y + y, position.z);
                     platformTilemap.SetTile(tilePosition, tile);
+                }
+            }
+        }
+    }
+
+    void RemovePlatformsAboveCamera()
+    {
+        Vector3 cameraPosition = Camera.main.transform.position;
+        Vector3Int cameraPositionInt = new Vector3Int(Mathf.RoundToInt(cameraPosition.x), Mathf.RoundToInt(cameraPosition.y), Mathf.RoundToInt(cameraPosition.z));
+
+        BoundsInt bounds = platformTilemap.cellBounds;
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
+        {
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
+            {
+                Vector3Int tilePosition = new Vector3Int(x, y, 0);
+                Vector3 worldPosition = platformTilemap.CellToWorld(tilePosition);
+
+                if (worldPosition.y > cameraPosition.y + Camera.main.orthographicSize)
+                {
+                    platformTilemap.SetTile(tilePosition, null);
                 }
             }
         }

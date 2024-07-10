@@ -23,17 +23,20 @@ public class Parallax : MonoBehaviour
 
     void Update()
     {
-        // Calculate how much the player has moved down
         float playerMoveDown = initialPlayerPosition.y - player.position.y;
 
         if (playerMoveDown > 0)
         {
-            // Move the background based on the player's movement
             float backgroundMoveY = playerMoveDown * parallaxEffectMultiplier;
-            tilemap.transform.position = new Vector3(tilemap.transform.position.x, initialBackgroundY - backgroundMoveY, tilemap.transform.position.z);
+            Vector3 newPosition = new Vector3(tilemap.transform.position.x, initialBackgroundY - backgroundMoveY, tilemap.transform.position.z);
 
-            // Recycle the background when it moves out of the camera view
-            if (initialPlayerPosition.y - player.position.y >= tilemapHeight)
+            // Only update position if it has changed
+            if (tilemap.transform.position != newPosition)
+            {
+                tilemap.transform.position = newPosition;
+            }
+
+            if (playerMoveDown >= tilemapHeight)
             {
                 RecycleBackground();
                 initialPlayerPosition = player.position;

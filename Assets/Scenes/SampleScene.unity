@@ -151,23 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5f814c455cb694b8339238ef8b926b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefabs:
-  - prefab: {fileID: 7850479009277658897, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 4678868012114195233, guid: 89036edd6de684b4abaad76c34389206, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: f44aad6ee9843e34e8b100fcb2f231b1, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: 8d9586e84704cf248a0c27334b63ac26, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: ea6489a7009bd6b48a0bcf5c5d5e5217, type: 3}
-    initialPoolSize: 10
-  - prefab: {fileID: 6403156551846026225, guid: 261e061f385247340a809431a1efddb4, type: 3}
-    initialPoolSize: 10
+  platformPrefabs: []
 --- !u!4 &2618250
 Transform:
   m_ObjectHideFlags: 0
@@ -585,7 +569,6 @@ GameObject:
   - component: {fileID: 848159397}
   - component: {fileID: 848159396}
   - component: {fileID: 848159395}
-  - component: {fileID: 848159394}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -606,22 +589,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1832967023}
+  m_Father: {fileID: 918296663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &848159394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848159392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91824377e417b5439338a3f34f65927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1674477672}
-  parallaxEffectMultiplier: 1
 --- !u!19719996 &848159395
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1718,6 +1687,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 186057455}
+  - {fileID: 848159393}
   m_Father: {fileID: 1832967023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &918296664
@@ -7216,7 +7186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1674477672}
-  parallaxEffectMultiplier: 1
+  parallaxEffectMultiplier: 0.5
 --- !u!1001 &1052870188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7346,7 +7316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformTilemap: {fileID: 1345102326}
-  platformObjectPool: {fileID: 2618249}
   platformTilemapPrefabs:
   - {fileID: 376152009623047355, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
   - {fileID: 5816372760467947833, guid: 89036edd6de684b4abaad76c34389206, type: 3}
@@ -7358,7 +7327,8 @@ MonoBehaviour:
   - {fileID: 8074717386495018381, guid: 261e061f385247340a809431a1efddb4, type: 3}
   minTilemapsPerLine: 3
   maxTilemapsPerLine: 3
-  distanceBetweenTilemaps: 1
+  initialDistanceBetweenTilemaps: 1
+  minDistanceBetweenTilemaps: 0.2
   distanceReductionPerLine: 0.1
   maxWidth: 7
   player: {fileID: 1674477672}
@@ -7579,7 +7549,6 @@ Transform:
   m_Children:
   - {fileID: 1345102323}
   - {fileID: 918296663}
-  - {fileID: 848159393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2071141677 stripped
