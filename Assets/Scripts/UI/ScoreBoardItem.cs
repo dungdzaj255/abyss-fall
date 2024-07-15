@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class ScoreBoardItem {
-    public string PlayerName { get; set; }
-    public int PlayerScore { get; set; }
+    public string PlayerName;
+    public int PlayerScore;
 }
