@@ -3,7 +3,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     public Transform player;
-    public float parallaxEffectMultiplier = 0.05f;
+    public float parallaxEffectMultiplier = 0.1f;
 
     private Vector3 initialPlayerPosition;
     private Renderer quadRenderer;

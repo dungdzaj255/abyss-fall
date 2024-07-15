@@ -81,6 +81,9 @@ public class GeneratePlatform : MonoBehaviour
 
         int numOfTilemapsToGenerate = Random.Range(minTilemapsPerLine, maxTilemapsPerLine + 1);
 
+        // Adjust this multiplier to increase the distance between consecutive tilemaps in the same line
+        float horizontalSpacingMultiplier = 1f; // Adjust as needed
+
         for (int i = 0; i < numOfTilemapsToGenerate; i++)
         {
             int prefabIndex = Random.Range(0, platformTilemapPrefabs.Length);
@@ -93,9 +96,9 @@ public class GeneratePlatform : MonoBehaviour
             }
 
             int startX = currentPosition.x + (platformTilemap.size.x - prefabTilemap.size.x) / 2;
-            int xOffset = i * (maxWidth + 1);
-            Vector3Int platformPosition = new Vector3Int(startX + xOffset, currentPosition.y, currentPosition.z);
+            int xOffset = Mathf.RoundToInt(i * (maxWidth + 1) * horizontalSpacingMultiplier); // Adjusted xOffset
 
+            Vector3Int platformPosition = new Vector3Int(startX + xOffset, currentPosition.y, currentPosition.z);
             platformPosition.x = Mathf.RoundToInt(platformPosition.x);
 
             PlaceTilemap(prefabTilemap, platformPosition);
@@ -109,6 +112,7 @@ public class GeneratePlatform : MonoBehaviour
 
         hasGeneratedInitialPlatforms = true; // Mark that initial platforms have been generated
     }
+
 
     void PlaceTilemap(Tilemap tilemapPrefab, Vector3Int position)
     {
@@ -124,7 +128,7 @@ public class GeneratePlatform : MonoBehaviour
 
                 if (tile != null)
                 {
-                    Vector3Int tilePosition = new Vector3Int(position.x + x, position.y + y, position.z);
+                    Vector3Int tilePosition = new Vector3Int(position.x + x + 2, position.y + y, position.z);
                     platformTilemap.SetTile(tilePosition, tile);
                 }
             }
