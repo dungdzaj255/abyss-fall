@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,13 +14,15 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Sprite pausedBtn_sprite;
     [SerializeField] private Sprite unpausedBtn_sprite;
 
-    [SerializeField] private Transform mutedBtn;
+    [SerializeField] private Transform mutedBtnOnPauseMenu;
+    [SerializeField] private Transform mutedBtnOnGameOverMenu;
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
     [SerializeField] private Transform gameOverMenu;
     [SerializeField] private Transform pointCounter;
     [SerializeField] private Transform pointCounter_position_default;
     [SerializeField] private Transform pointCounter_position_on_menu;
+    [SerializeField] private Transform pointCounter_position_on_GAMEOVER;
 
     public bool isMuted = false;
     public bool isPaused = false;
@@ -46,9 +49,11 @@ public class IngameUIController : MonoBehaviour {
         Init();
         Time.timeScale = 1f;
         if (isMuted ) {
-            mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
-            mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
         }
     }
 
@@ -56,13 +61,19 @@ public class IngameUIController : MonoBehaviour {
         if (player.GetCurrentHealth() <= 0 ) {
             GameOver();
         }
+
+        if (Input.GetKeyDown(KeyCode.U)) {
+            player.TakeDamage(1000f);
+        }
     }
 
     public void handleMute() {
         if (!isMuted) {
-            mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
-            mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
         }
         isMuted = !isMuted;
     }
@@ -103,6 +114,25 @@ public class IngameUIController : MonoBehaviour {
     public void GameOver() {
         Time.timeScale = 0f;
         gameOverMenu.gameObject.SetActive(true);
-        pointCounter.transform.position = pointCounter_position_on_menu.transform.position;
+        pointCounter.transform.position = pointCounter_position_on_GAMEOVER.transform.position;
+        pointCounter.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        SaveToScoreBoard();
+    }
+
+    private void SaveToScoreBoard() {
+        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
+        ScoreBoardItem scoreBoardItem = new ScoreBoardItem();
+        scoreBoardItem.PlayerName = PlayerPrefs.GetString("playerName");
+        if (string.IsNullOrEmpty(scoreBoardItem.PlayerName)) {
+            scoreBoardItem.PlayerName = "Player";
+        }
+        try {
+            scoreBoardItem.PlayerScore =
+                Int32.Parse(pointCounter.transform.GetChild(2).GetComponent<Text>().text);
+        } catch (Exception) {
+            scoreBoardItem.PlayerScore = 0;
+        }
+        string jsonString = JsonUtility.ToJson(scoreBoardItem, true);
+        File.WriteAllText(filePath, jsonString);
     }
 }

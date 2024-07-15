@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class StartupMenu : MonoBehaviour
 
     [SerializeField] private Transform hightScoreWindow;
     [SerializeField] private Transform menuWindow;
+    [SerializeField] private TMP_InputField nameInput;
 
     [SerializeField] private Transform playBtn;
     [SerializeField] private Transform volumnBtn;
@@ -29,6 +31,7 @@ public class StartupMenu : MonoBehaviour
     private void Start() {
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
         hightScoreWindow.gameObject.SetActive(false);
+        Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
     }
 
     public void Init() {
@@ -56,6 +59,7 @@ public class StartupMenu : MonoBehaviour
     public void PlayGame() {
         SceneManager.LoadSceneAsync(1);
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
+        PlayerPrefs.SetString("playerName", nameInput.text);
     }
 
     public void Exit() {
