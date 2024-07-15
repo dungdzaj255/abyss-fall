@@ -226,7 +226,6 @@ MonoBehaviour:
   POINTS: 1
   isAbleAttack: 0
   isMoving: 0
-  attackPool: {fileID: 6948757549693999490, guid: 6ce38342d095dc84482a7100b06bd294, type: 3}
   attackInterval: 2.5
 --- !u!50 &4714646143871294032
 Rigidbody2D:
