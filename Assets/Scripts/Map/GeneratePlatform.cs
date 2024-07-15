@@ -15,6 +15,8 @@ public class GeneratePlatform : MonoBehaviour
     public Transform player;
     public float scrollSpeed = 2f;
 
+    private int maxPlatform = 3;
+
     private Vector3 initialPlayerPosition;
     private Vector3Int lastGeneratedPosition;
     private float totalDistanceGenerated;
@@ -31,74 +33,43 @@ public class GeneratePlatform : MonoBehaviour
         initialPlayerPosition = player.position;
         lastGeneratedPosition = platformTilemap.origin - new Vector3Int(0, 1, 0);
         distanceBetweenTilemaps = initialDistanceBetweenTilemaps;
+        scrollSpeed = 2;
+        spawnInterval = 3;
+        GeneratePlatforms();
+        GeneratePlatforms();
+        GeneratePlatforms();
     }
 
     void Update()
     {
-        //if (player.position.y < initialPlayerPosition.y)
-        //{
-            Vector3 move = new Vector3(0, scrollSpeed * Time.deltaTime, 0);
-            platformTilemap.transform.position += move;
+ 
+        Vector3 move = new Vector3(0, scrollSpeed * Time.deltaTime, 0);
+        platformTilemap.transform.position += move;
 
-            float distanceTraveled = initialPlayerPosition.y - player.position.y;
-
-            // Debug.Log statements to understand generation conditions
-            Debug.Log($"Distance Traveled: {distanceTraveled}, Total Distance Generated: {totalDistanceGenerated}, Distance Between Tilemaps: {distanceBetweenTilemaps}");
-
-        // Check if we need to generate more platforms
-        //if (generateNextLines && distanceTraveled > totalDistanceGenerated + distanceBetweenTilemaps)
-        //{
-        //    for (int line = 0; line < linesToGenerate; line++)
-        //    {
-        //        GeneratePlatforms();
-        //        totalDistanceGenerated += distanceBetweenTilemaps;
-        //    }
-        //    generateNextLines = false; // Set to false until player moves down again
-        //}
         spawnTimer += Time.deltaTime;
         if(PointSystem.instance.currentPoint == 10)
         {
             scrollSpeed = 4;
+            spawnInterval = 1.5f;
         }
         if (PointSystem.instance.currentPoint == 20)
         {
             scrollSpeed = 5;
+            spawnInterval = 1.25f;
         }
         if (PointSystem.instance.currentPoint == 30)
         {
             scrollSpeed = 6;
+            spawnInterval = 1f;
         }
         if (spawnTimer >= spawnInterval)
         {
-            for (int line = 0; line < linesToGenerate; line++)
-            {
-
-                GeneratePlatforms();
-                totalDistanceGenerated += distanceBetweenTilemaps;
-            }
+           GeneratePlatforms();
+           totalDistanceGenerated += distanceBetweenTilemaps;
+            
             spawnTimer = 0f;
         }
-
-
-
         RemovePlatformsAboveCamera();
-
-            // Check if player is close to last line to generate next lines
-            Vector3Int playerCellPosition = platformTilemap.WorldToCell(player.position);
-            Vector3Int lastLinePosition = platformTilemap.origin - new Vector3Int(0, linesToGenerate * platformTilemapPrefabs[0].size.y, 0);
-
-            // Adjust the tolerance value (0.1f) based on your platform size and player movement speed
-            if (playerCellPosition.y <= lastLinePosition.y + 0.1f)
-            {
-                generateNextLines = true;
-            }
-        //}
-        //else
-        //{
-        //    // If player jumps back up or hasn't moved down enough, reset generation flags
-        //    totalDistanceGenerated = 0f;
-        //    generateNextLines = true;
-        //}
     }
 
     void GeneratePlatforms()
@@ -114,7 +85,6 @@ public class GeneratePlatform : MonoBehaviour
 
             if (prefabTilemap.size.x > maxWidth)
             {
-                Debug.LogWarning($"Tilemap prefab {prefabTilemap.name} width exceeds maxWidth. Adjusting width.");
                 prefabTilemap.size = new Vector3Int(maxWidth, prefabTilemap.size.y, prefabTilemap.size.z);
             }
 
@@ -159,6 +129,7 @@ public class GeneratePlatform : MonoBehaviour
 
     void RemovePlatformsAboveCamera()
     {
+        int number = 1;
         Vector3 cameraPosition = Camera.main.transform.position;
         Vector3Int cameraPositionInt = new Vector3Int(Mathf.RoundToInt(cameraPosition.x), Mathf.RoundToInt(cameraPosition.y), Mathf.RoundToInt(cameraPosition.z));
 
