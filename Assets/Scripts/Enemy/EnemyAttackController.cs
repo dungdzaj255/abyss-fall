@@ -40,26 +40,21 @@ public class EnemyAttackController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.CompareTag("Platform"))
         {
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            Player playerHealth = collision.gameObject.GetComponent<Player>();
+            Player playerHealth = collision.GetComponent<Player>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyAttackDamageAmount);
                 gameObject.SetActive(false);
             }
         }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Physics2D.IgnoreCollision(collision.collider, boxCollider);
-        }
-
     }
 
 }
