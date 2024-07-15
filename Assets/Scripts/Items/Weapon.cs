@@ -135,6 +135,7 @@ public class Weapon : MonoBehaviour
             bulletCountUI.DecreaseByOne(currentBulletAmount);
 
             //======================
+            CameraShake.instance.ShakeCamera();
 
         }
     }
