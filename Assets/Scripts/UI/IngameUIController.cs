@@ -60,13 +60,13 @@ public class IngameUIController : MonoBehaviour {
     }
 
     private void Update() {
-        if (player.GetCurrentHealth() <= 0 ) {
-            GameOver();
-            Time.timeScale = 0f;
-        }
-
         if (Input.GetKeyDown(KeyCode.U)) {
             player.TakeDamage(1000f);
+        }
+    }
+    private void FixedUpdate() {
+        if (player.GetCurrentHealth() <= 0) {
+            GameOver();
         }
     }
 
@@ -137,7 +137,7 @@ public class IngameUIController : MonoBehaviour {
     private void SaveToScoreBoard() {
         ScoreBoardItem scoreBoardItem = new ScoreBoardItem();
         scoreBoardItem.PlayerName = PlayerPrefs.GetString("playerName");
-        if (string.IsNullOrEmpty(scoreBoardItem.PlayerName)) {
+        if (string.IsNullOrEmpty(scoreBoardItem.PlayerName) || scoreBoardItem.PlayerName.Equals("\n")) {
             scoreBoardItem.PlayerName = "Player";
         }
         try {
@@ -149,14 +149,24 @@ public class IngameUIController : MonoBehaviour {
         string jsonString = JsonUtility.ToJson(scoreBoardItem, true);
 
         List<ScoreBoardItem> existScores = LoadFromScoreBoard();
+        if (existScores.Count > 0 && scoreBoardItem.PlayerScore >= existScores[0].PlayerScore) {
+            if (existScores.Count == 5) {
+                existScores.Remove(existScores[existScores.Count - 1]);
+            }
+        }
         existScores.Add(scoreBoardItem);
         existScores.Sort((x, y) => y.PlayerScore.CompareTo(x.PlayerScore));
-        foreach (var item in existScores) {
-            Debug.Log($"Player: {item.PlayerName}, Score: {item.PlayerScore}");
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.items = new ScoreBoardItem[existScores.Count];
+        for (int i = 0; i < existScores.Count; i++) {
+            scoreBoard.items[i] = existScores[i];
         }
+        string json = JsonConvert.SerializeObject(scoreBoard, Formatting.Indented);
+
+        Debug.Log(json);
+
         string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
 
-        string updatedJsonString = JsonUtility.ToJson(existScores, true);
-        //File.WriteAllText(filePath, updatedJsonString);
+        File.WriteAllText(filePath, json);
     }
 }
