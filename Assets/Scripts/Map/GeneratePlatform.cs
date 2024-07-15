@@ -40,6 +40,9 @@ public class GeneratePlatform : MonoBehaviour
 
             float distanceTraveled = initialPlayerPosition.y - player.position.y;
 
+            // Debug.Log statements to understand generation conditions
+            Debug.Log($"Distance Traveled: {distanceTraveled}, Total Distance Generated: {totalDistanceGenerated}, Distance Between Tilemaps: {distanceBetweenTilemaps}");
+
             // Check if we need to generate more platforms
             if (generateNextLines && distanceTraveled > totalDistanceGenerated + distanceBetweenTilemaps)
             {
@@ -48,15 +51,25 @@ public class GeneratePlatform : MonoBehaviour
                     GeneratePlatforms();
                     totalDistanceGenerated += distanceBetweenTilemaps;
                 }
-                generateNextLines = false; // Prevent further generation until the player reaches the last line
+                generateNextLines = false; // Set to false until player moves down again
             }
 
             // Remove platforms above camera view
             RemovePlatformsAboveCamera();
+
+            // Check if player is close to last line to generate next lines
+            Vector3Int playerCellPosition = platformTilemap.WorldToCell(player.position);
+            Vector3Int lastLinePosition = platformTilemap.origin - new Vector3Int(0, linesToGenerate * platformTilemapPrefabs[0].size.y, 0);
+
+            // Adjust the tolerance value (0.1f) based on your platform size and player movement speed
+            if (playerCellPosition.y <= lastLinePosition.y + 0.1f)
+            {
+                generateNextLines = true;
+            }
         }
         else
         {
-            // If player jumps back up, reset total distance generated and allow next line generation
+            // If player jumps back up or hasn't moved down enough, reset generation flags
             totalDistanceGenerated = 0f;
             generateNextLines = true;
         }
