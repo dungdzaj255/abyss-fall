@@ -13,7 +13,7 @@ public class GeneratePlatform : MonoBehaviour
     public float distanceReductionPerLine = 0.1f;
     public int maxWidth = 7;
     public Transform player;
-    public float scrollSpeed = 5f;
+    public float scrollSpeed = 2f;
 
     private Vector3 initialPlayerPosition;
     private Vector3Int lastGeneratedPosition;
@@ -23,6 +23,8 @@ public class GeneratePlatform : MonoBehaviour
     private bool hasGeneratedInitialPlatforms = false;
     private bool generateNextLines = true;
     private int linesToGenerate = 2; // Number of lines to generate below the last line
+    [SerializeField] private float spawnInterval = 2f;
+    private float spawnTimer;
 
     void Start()
     {
@@ -33,8 +35,8 @@ public class GeneratePlatform : MonoBehaviour
 
     void Update()
     {
-        if (player.position.y < initialPlayerPosition.y)
-        {
+        //if (player.position.y < initialPlayerPosition.y)
+        //{
             Vector3 move = new Vector3(0, scrollSpeed * Time.deltaTime, 0);
             platformTilemap.transform.position += move;
 
@@ -43,19 +45,43 @@ public class GeneratePlatform : MonoBehaviour
             // Debug.Log statements to understand generation conditions
             Debug.Log($"Distance Traveled: {distanceTraveled}, Total Distance Generated: {totalDistanceGenerated}, Distance Between Tilemaps: {distanceBetweenTilemaps}");
 
-            // Check if we need to generate more platforms
-            if (generateNextLines && distanceTraveled > totalDistanceGenerated + distanceBetweenTilemaps)
+        // Check if we need to generate more platforms
+        //if (generateNextLines && distanceTraveled > totalDistanceGenerated + distanceBetweenTilemaps)
+        //{
+        //    for (int line = 0; line < linesToGenerate; line++)
+        //    {
+        //        GeneratePlatforms();
+        //        totalDistanceGenerated += distanceBetweenTilemaps;
+        //    }
+        //    generateNextLines = false; // Set to false until player moves down again
+        //}
+        spawnTimer += Time.deltaTime;
+        if(PointSystem.instance.currentPoint == 10)
+        {
+            scrollSpeed = 4;
+        }
+        if (PointSystem.instance.currentPoint == 20)
+        {
+            scrollSpeed = 5;
+        }
+        if (PointSystem.instance.currentPoint == 30)
+        {
+            scrollSpeed = 6;
+        }
+        if (spawnTimer >= spawnInterval)
+        {
+            for (int line = 0; line < linesToGenerate; line++)
             {
-                for (int line = 0; line < linesToGenerate; line++)
-                {
-                    GeneratePlatforms();
-                    totalDistanceGenerated += distanceBetweenTilemaps;
-                }
-                generateNextLines = false; // Set to false until player moves down again
-            }
 
-            // Remove platforms above camera view
-            RemovePlatformsAboveCamera();
+                GeneratePlatforms();
+                totalDistanceGenerated += distanceBetweenTilemaps;
+            }
+            spawnTimer = 0f;
+        }
+
+
+
+        RemovePlatformsAboveCamera();
 
             // Check if player is close to last line to generate next lines
             Vector3Int playerCellPosition = platformTilemap.WorldToCell(player.position);
@@ -66,13 +92,13 @@ public class GeneratePlatform : MonoBehaviour
             {
                 generateNextLines = true;
             }
-        }
-        else
-        {
-            // If player jumps back up or hasn't moved down enough, reset generation flags
-            totalDistanceGenerated = 0f;
-            generateNextLines = true;
-        }
+        //}
+        //else
+        //{
+        //    // If player jumps back up or hasn't moved down enough, reset generation flags
+        //    totalDistanceGenerated = 0f;
+        //    generateNextLines = true;
+        //}
     }
 
     void GeneratePlatforms()
