@@ -45,6 +45,9 @@ public class IngameUIController : MonoBehaviour {
         }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         pointCounter.transform.position = defaultPosition_pointCounter;
+        if (AudioManager.instance != null) {
+            AudioManager.instance.PlayBackGroundMusic();
+        }
     }
 
     private void Awake() {
@@ -53,9 +56,15 @@ public class IngameUIController : MonoBehaviour {
         if (isMuted ) {
             mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
             mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            if (AudioManager.instance != null) {
+                AudioManager.instance.Muted();
+            }
         } else {
             mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
             mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            if (AudioManager.instance != null) {
+                AudioManager.instance.UnMuted();
+            }
         }
     }
 
@@ -74,9 +83,15 @@ public class IngameUIController : MonoBehaviour {
         if (!isMuted) {
             mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
             mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            if (AudioManager.instance != null) {
+                AudioManager.instance.Muted();
+            }
         } else {
             mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
             mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            if (AudioManager.instance != null) {
+                AudioManager.instance.UnMuted();
+            }
         }
         isMuted = !isMuted;
     }
@@ -149,17 +164,15 @@ public class IngameUIController : MonoBehaviour {
         string jsonString = JsonUtility.ToJson(scoreBoardItem, true);
 
         List<ScoreBoardItem> existScores = LoadFromScoreBoard();
-        if (existScores.Count > 0 && scoreBoardItem.PlayerScore >= existScores[0].PlayerScore) {
-            if (existScores.Count == 5) {
-                existScores.Remove(existScores[existScores.Count - 1]);
-            }
-        }
         existScores.Add(scoreBoardItem);
         existScores.Sort((x, y) => y.PlayerScore.CompareTo(x.PlayerScore));
+
         ScoreBoard scoreBoard = new ScoreBoard();
-        scoreBoard.items = new ScoreBoardItem[existScores.Count];
+        scoreBoard.items = new ScoreBoardItem[5];
         for (int i = 0; i < existScores.Count; i++) {
-            scoreBoard.items[i] = existScores[i];
+            if (i < 5) {
+                scoreBoard.items[i] = existScores[i];
+            }
         }
         string json = JsonConvert.SerializeObject(scoreBoard, Formatting.Indented);
 
