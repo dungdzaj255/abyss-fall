@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6b83afa96a3fa647a4ff9be723934b2
+guid: a91e254cafa02a941a62f20782cc9f58
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_remove_animation_0
+      name: bullet_remove_animation 1_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
+        x: 5
+        y: 0
         width: 12
-        height: 20
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cc71765cc5abc146bb04c6f3d56f677
-      internalID: -1610760785
+      spriteID: 63c98fbc7476e164d8f526a5ee13f4f3
+      internalID: 1282200678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_remove_animation_1
+      name: bullet_remove_animation 1_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 4
+        x: 21
+        y: 0
         width: 12
-        height: 21
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3d77f984eb97b546a78b221e72bbea1
-      internalID: -1364047896
+      spriteID: 6f046aae5f8d7764ca62853b3fa87fed
+      internalID: -1148684620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_remove_animation_2
+      name: bullet_remove_animation 1_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 4
+        x: 37
+        y: 0
         width: 12
-        height: 22
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f8d1f59b8c3a66408d42411997a9205
-      internalID: -815855760
+      spriteID: a02243622671aec40abe237945ae2c55
+      internalID: 1381106068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_remove_animation_3
+      name: bullet_remove_animation 1_3
       rect:
         serializedVersion: 2
-        x: 52
-        y: 4
+        x: 53
+        y: 0
         width: 12
-        height: 23
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f06ecce7bc6c394195fe7311012f019
-      internalID: 545175868
+      spriteID: f6385b7291feb434e948c774290b1f2e
+      internalID: 1204823278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_remove_animation_4
+      name: bullet_remove_animation 1_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 4
+        x: 69
+        y: 0
         width: 12
-        height: 23
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ce9de8ce8ab04b4abd7fe64da1850e7
-      internalID: -413700850
+      spriteID: 6ce99e29d6c7b4d418ec39023ba657ec
+      internalID: -328259587
       vertices: []
       indices: 
       edges: []
@@ -212,11 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_remove_animation_0: -1610760785
-      bullet_remove_animation_1: -1364047896
-      bullet_remove_animation_2: -815855760
-      bullet_remove_animation_3: 545175868
-      bullet_remove_animation_4: -413700850
+      bullet_remove_animation 1_0: 1282200678
+      bullet_remove_animation 1_1: -1148684620
+      bullet_remove_animation 1_2: 1381106068
+      bullet_remove_animation 1_3: 1204823278
+      bullet_remove_animation 1_4: -328259587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
