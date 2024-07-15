@@ -128,6 +128,7 @@ public class Weapon : MonoBehaviour
                 rb.gravityScale = 0;
                 //độ giật súng
                 GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * recoil, ForceMode2D.Impulse);
+
             }
 
             //======================

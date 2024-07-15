@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - Background
   - VTCamera
+  - BottomBoundary
   layers:
   - Default
   - TransparentFX
