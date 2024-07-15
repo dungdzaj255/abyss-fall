@@ -7,26 +7,26 @@ public class Parallax : MonoBehaviour
 
     private Vector3 initialPlayerPosition;
     private Renderer quadRenderer;
-    private float lastPlayerY;
 
     void Start()
     {
         initialPlayerPosition = player.position;
         quadRenderer = GetComponent<Renderer>();
-        lastPlayerY = player.position.y;
     }
 
     void Update()
     {
-        float playerMoveDown = lastPlayerY - player.position.y;
+        // Calculate the difference in vertical positions between quad and player
+        float verticalDifference = player.position.y - transform.position.y;
 
-        if (playerMoveDown > 0)
-        {
-            float backgroundMoveY = playerMoveDown * parallaxEffectMultiplier;
-            Vector2 newTextureOffset = quadRenderer.material.mainTextureOffset + Vector2.up * backgroundMoveY;
-            quadRenderer.material.mainTextureOffset = newTextureOffset;
-        }
+        // Move the quad to match the player's y-position
+        transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
 
-        lastPlayerY = player.position.y;
+        // Calculate the background movement based on the difference
+        float backgroundMoveY = verticalDifference * parallaxEffectMultiplier;
+
+        // Update the texture offset for the parallax effect
+        Vector2 newTextureOffset = quadRenderer.material.mainTextureOffset + Vector2.up * backgroundMoveY;
+        quadRenderer.material.mainTextureOffset = newTextureOffset;
     }
 }
