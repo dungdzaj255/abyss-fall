@@ -77,7 +77,6 @@ public class Player : MonoBehaviour
             animator.SetBool("isJumping", !isGrounded);
         }
 
-
         /* healthbar */
         if (Input.GetKeyDown(KeyCode.RightAlt)) {
             TakeDamage(10f);
@@ -126,6 +125,7 @@ public class Player : MonoBehaviour
     {
         if (isDead) return;  // Prevent multiple death triggers
         isDead = true;
+        Debug.Log("Player died!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -162,6 +162,11 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("takeDamage", false);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        currentHealth = 0;
     }
 
     public float GetCurrentHealth() {
