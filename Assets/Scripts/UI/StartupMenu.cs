@@ -37,6 +37,7 @@ public class StartupMenu : MonoBehaviour
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
         hightScoreWindow.gameObject.SetActive(false);
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
+        AudioManager.instance.PlayBackGroundMusic();
     }
 
     public void Init() {
@@ -78,8 +79,10 @@ public class StartupMenu : MonoBehaviour
     public void handleClickVolumnBtn() {
         if (!isMuted) {
             volumnBtn.GetComponent<Image>().sprite = volumnBtn_muted;
+            AudioManager.instance.Muted();
         } else {
             volumnBtn.GetComponent<Image>().sprite = volumnBtn_unmuted;
+            AudioManager.instance.UnMuted();
         }
         isMuted = !isMuted;
     }
