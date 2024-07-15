@@ -1,9 +1,12 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static IngameUIController;
 
 public class IngameUIController : MonoBehaviour {
     public static IngameUIController instance;
@@ -13,16 +16,20 @@ public class IngameUIController : MonoBehaviour {
     [SerializeField] private Sprite pausedBtn_sprite;
     [SerializeField] private Sprite unpausedBtn_sprite;
 
-    [SerializeField] private Transform mutedBtn;
+    [SerializeField] private Transform mutedBtnOnPauseMenu;
+    [SerializeField] private Transform mutedBtnOnGameOverMenu;
     [SerializeField] private Transform pausedBtn;
     [SerializeField] private Transform pausedMenu;
+    [SerializeField] private Transform gameOverMenu;
     [SerializeField] private Transform pointCounter;
     [SerializeField] private Transform pointCounter_position_default;
     [SerializeField] private Transform pointCounter_position_on_menu;
+    [SerializeField] private Transform pointCounter_position_on_GAMEOVER;
 
     public bool isMuted = false;
     public bool isPaused = false;
     private Vector2 defaultPosition_pointCounter;
+    private Player player;
 
     private void Start() {
         pointCounter.transform.position = pointCounter_position_default.transform.position;
@@ -36,6 +43,7 @@ public class IngameUIController : MonoBehaviour {
             isMuted = bool.Parse(PlayerPrefs.GetString("isMuted"));
         } catch (FormatException) {
         }
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         pointCounter.transform.position = defaultPosition_pointCounter;
     }
 
@@ -43,17 +51,32 @@ public class IngameUIController : MonoBehaviour {
         Init();
         Time.timeScale = 1f;
         if (isMuted ) {
-            mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
-            mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+        }
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.U)) {
+            player.TakeDamage(1000f);
+        }
+    }
+    private void FixedUpdate() {
+        if (player.GetCurrentHealth() <= 0) {
+            GameOver();
         }
     }
 
     public void handleMute() {
         if (!isMuted) {
-            mutedBtn.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = mutedBtn_sprite;
         } else {
-            mutedBtn.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnPauseMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
+            mutedBtnOnGameOverMenu.GetComponent<Image>().sprite = unmutedBtn_sprite;
         }
         isMuted = !isMuted;
     }
@@ -89,5 +112,61 @@ public class IngameUIController : MonoBehaviour {
         SceneManager.LoadSceneAsync(0);
         PlayerPrefs.SetString("isPaused", isPaused.ToString());
         PlayerPrefs.SetString("isMuted", isMuted.ToString());
+    }
+
+    public void GameOver() {
+        Time.timeScale = 0f;
+        gameOverMenu.gameObject.SetActive(true);
+        pointCounter.transform.position = pointCounter_position_on_GAMEOVER.transform.position;
+        pointCounter.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        SaveToScoreBoard();
+    }
+    private List<ScoreBoardItem> LoadFromScoreBoard() {
+        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
+        if (File.Exists(filePath)) {
+            string jsonContent = File.ReadAllText(filePath);
+            var scoreboard = JsonConvert.DeserializeObject<Dictionary<string, List<ScoreBoardItem>>>(jsonContent);
+            List<ScoreBoardItem> scoreboardItems = scoreboard["items"];
+            return scoreboardItems;
+        } else {
+            return new List<ScoreBoardItem>();
+        }
+    }
+
+
+    private void SaveToScoreBoard() {
+        ScoreBoardItem scoreBoardItem = new ScoreBoardItem();
+        scoreBoardItem.PlayerName = PlayerPrefs.GetString("playerName");
+        if (string.IsNullOrEmpty(scoreBoardItem.PlayerName) || scoreBoardItem.PlayerName.Equals("\n")) {
+            scoreBoardItem.PlayerName = "Player";
+        }
+        try {
+            scoreBoardItem.PlayerScore =
+                Int32.Parse(pointCounter.transform.GetChild(2).GetComponent<Text>().text);
+        } catch (Exception) {
+            scoreBoardItem.PlayerScore = 0;
+        }
+        string jsonString = JsonUtility.ToJson(scoreBoardItem, true);
+
+        List<ScoreBoardItem> existScores = LoadFromScoreBoard();
+        if (existScores.Count > 0 && scoreBoardItem.PlayerScore >= existScores[0].PlayerScore) {
+            if (existScores.Count == 5) {
+                existScores.Remove(existScores[existScores.Count - 1]);
+            }
+        }
+        existScores.Add(scoreBoardItem);
+        existScores.Sort((x, y) => y.PlayerScore.CompareTo(x.PlayerScore));
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.items = new ScoreBoardItem[existScores.Count];
+        for (int i = 0; i < existScores.Count; i++) {
+            scoreBoard.items[i] = existScores[i];
+        }
+        string json = JsonConvert.SerializeObject(scoreBoard, Formatting.Indented);
+
+        Debug.Log(json);
+
+        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
+
+        File.WriteAllText(filePath, json);
     }
 }
