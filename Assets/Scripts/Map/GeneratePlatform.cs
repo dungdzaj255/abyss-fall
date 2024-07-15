@@ -22,7 +22,7 @@ public class GeneratePlatform : MonoBehaviour
 
     private bool hasGeneratedInitialPlatforms = false;
     private bool generateNextLines = true;
-    private int linesToGenerate = 5; // Number of lines to generate below the last line
+    private int linesToGenerate = 2; // Number of lines to generate below the last line
 
     void Start()
     {

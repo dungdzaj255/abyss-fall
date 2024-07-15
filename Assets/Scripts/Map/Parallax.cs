@@ -1,59 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class Parallax : MonoBehaviour
 {
     public Transform player;
-    public float parallaxEffectMultiplier = 0.5f;
+    public float parallaxEffectMultiplier = 0.05f;
 
-    private Tilemap tilemap;
-    private float tilemapHeight;
     private Vector3 initialPlayerPosition;
-    private float initialBackgroundY;
+    private Renderer quadRenderer;
+    private float lastPlayerY;
 
     void Start()
     {
-        tilemap = GetComponent<Tilemap>();
-        tilemapHeight = CalculateTilemapHeight(tilemap);
         initialPlayerPosition = player.position;
-        initialBackgroundY = tilemap.transform.position.y;
+        quadRenderer = GetComponent<Renderer>();
+        lastPlayerY = player.position.y;
     }
 
     void Update()
     {
-        float playerMoveDown = initialPlayerPosition.y - player.position.y;
+        float playerMoveDown = lastPlayerY - player.position.y;
 
         if (playerMoveDown > 0)
         {
             float backgroundMoveY = playerMoveDown * parallaxEffectMultiplier;
-            Vector3 newPosition = new Vector3(tilemap.transform.position.x, initialBackgroundY - backgroundMoveY, tilemap.transform.position.z);
-
-            // Only update position if it has changed
-            if (tilemap.transform.position != newPosition)
-            {
-                tilemap.transform.position = newPosition;
-            }
-
-            if (playerMoveDown >= tilemapHeight)
-            {
-                RecycleBackground();
-                initialPlayerPosition = player.position;
-                initialBackgroundY = tilemap.transform.position.y;
-            }
+            Vector2 newTextureOffset = quadRenderer.material.mainTextureOffset + Vector2.up * backgroundMoveY;
+            quadRenderer.material.mainTextureOffset = newTextureOffset;
         }
-    }
 
-    void RecycleBackground()
-    {
-        tilemap.transform.position -= new Vector3(0, tilemapHeight, 0);
-    }
-
-    float CalculateTilemapHeight(Tilemap tilemap)
-    {
-        // Calculate the height of the Tilemap based on its bounds
-        BoundsInt bounds = tilemap.cellBounds;
-        return bounds.size.y * tilemap.cellSize.y;
+        lastPlayerY = player.position.y;
     }
 }
