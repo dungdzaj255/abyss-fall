@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
         /* healthbar */
         healthBar.SetCurrent(Int32.Parse(currentHealth + ""));
         //======================
+        CameraShake.instance.ShakeCamera();
         if (currentHealth <= 0)
         {
             Die();
