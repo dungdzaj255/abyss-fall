@@ -134,6 +134,9 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("isJumping", !isGrounded);
+            if (AudioManager.instance != null) {
+                AudioManager.instance.PlaySFX(AudioManager.instance.collidingPlatform);
+            }
         }
         if(collision.CompareTag("Enemy") && !isGrounded)
         {

@@ -9,7 +9,11 @@ public class AudioManager : MonoBehaviour{
     [SerializeField] private AudioSource SfxSource;
 
     [Header("------ Audio Clips ------")]
-    [SerializeField] private AudioClip background;
+    [SerializeField] public AudioClip background;
+    [SerializeField] public AudioClip shoot;
+    [SerializeField] public AudioClip enemyDeath;
+    [SerializeField] public AudioClip collidingEnemysHead;
+    [SerializeField] public AudioClip collidingPlatform;
 
     private void Awake() {
         if (instance == null) {
@@ -21,6 +25,10 @@ public class AudioManager : MonoBehaviour{
     public void PlayBackGroundMusic() {
         musicSource.clip = background;
         musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip sfx) {
+        SfxSource.PlayOneShot(sfx);
     }
 
     public void Muted() {

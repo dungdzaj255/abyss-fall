@@ -305,3 +305,7 @@ MonoBehaviour:
   musicSource: {fileID: 6559894528369997297}
   SfxSource: {fileID: 2078270215747954958}
   background: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+  shoot: {fileID: 8300000, guid: 0c9587eb527682642bfefbcd0ad66baa, type: 3}
+  enemyDeath: {fileID: 8300000, guid: 982dfd37f7bfc384099da7b1c298d37a, type: 3}
+  collidingEnemysHead: {fileID: 8300000, guid: ce05143b354a4d24886d915a10252a31, type: 3}
+  collidingPlatform: {fileID: 8300000, guid: e6bed7d15d5016445b01e4b77718bab0, type: 3}
