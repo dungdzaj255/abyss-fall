@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static IngameUIController;
 
 public class IngameUIController : MonoBehaviour {
     public static IngameUIController instance;
@@ -60,6 +62,7 @@ public class IngameUIController : MonoBehaviour {
     private void Update() {
         if (player.GetCurrentHealth() <= 0 ) {
             GameOver();
+            Time.timeScale = 0f;
         }
 
         if (Input.GetKeyDown(KeyCode.U)) {
@@ -118,9 +121,20 @@ public class IngameUIController : MonoBehaviour {
         pointCounter.transform.GetChild(0).GetComponent<Image>().enabled = false;
         SaveToScoreBoard();
     }
+    private List<ScoreBoardItem> LoadFromScoreBoard() {
+        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
+        if (File.Exists(filePath)) {
+            string jsonContent = File.ReadAllText(filePath);
+            var scoreboard = JsonConvert.DeserializeObject<Dictionary<string, List<ScoreBoardItem>>>(jsonContent);
+            List<ScoreBoardItem> scoreboardItems = scoreboard["items"];
+            return scoreboardItems;
+        } else {
+            return new List<ScoreBoardItem>();
+        }
+    }
+
 
     private void SaveToScoreBoard() {
-        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
         ScoreBoardItem scoreBoardItem = new ScoreBoardItem();
         scoreBoardItem.PlayerName = PlayerPrefs.GetString("playerName");
         if (string.IsNullOrEmpty(scoreBoardItem.PlayerName)) {
@@ -133,6 +147,16 @@ public class IngameUIController : MonoBehaviour {
             scoreBoardItem.PlayerScore = 0;
         }
         string jsonString = JsonUtility.ToJson(scoreBoardItem, true);
-        File.WriteAllText(filePath, jsonString);
+
+        List<ScoreBoardItem> existScores = LoadFromScoreBoard();
+        existScores.Add(scoreBoardItem);
+        existScores.Sort((x, y) => y.PlayerScore.CompareTo(x.PlayerScore));
+        foreach (var item in existScores) {
+            Debug.Log($"Player: {item.PlayerName}, Score: {item.PlayerScore}");
+        }
+        string filePath = Path.Combine(Application.persistentDataPath, "score-board.json");
+
+        string updatedJsonString = JsonUtility.ToJson(existScores, true);
+        //File.WriteAllText(filePath, updatedJsonString);
     }
 }
