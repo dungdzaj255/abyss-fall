@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3620472127950296780}
   - component: {fileID: 2688326156720731119}
   - component: {fileID: 3297753782259716757}
-  - component: {fileID: 7999776724388497679}
+  - component: {fileID: 3017361719359359426}
   - component: {fileID: 7034655234095244593}
   - component: {fileID: 4723719907355847221}
   - component: {fileID: 1859676438463980731}
@@ -117,8 +117,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7999776724388497679
-BoxCollider2D:
+--- !u!58 &3017361719359359426
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,19 +149,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015150011, y: -0.106215775}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8888889, y: 0.8888889}
-    newSize: {x: 0.6666667, y: 0.6666667}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
-  m_Size: {x: 0.6283043, y: 0.68787396}
-  m_EdgeRadius: 0
+  m_Radius: 0.35
 --- !u!70 &7034655234095244593
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -214,7 +204,7 @@ MonoBehaviour:
   jumpPower: 5
   headDamage: 100
   maxHealth: 100
-  bounceForce: 5
+  bounceForce: 8
   rb: {fileID: 3297753782259716757}
   animator: {fileID: 1859676438463980731}
 --- !u!95 &1859676438463980731
