@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject el1Prefab;
     [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] public int enemiesPerSpawn = 1;
     private float spawnTimer;
     private int deadCount=1;
     private void Awake()
@@ -34,10 +35,24 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-
+        if (PointSystem.instance.currentPoint == 10)
+        {
+            enemiesPerSpawn = 2;
+        }
+        if (PointSystem.instance.currentPoint == 20)
+        {
+            enemiesPerSpawn = 3;
+        }
+        if (PointSystem.instance.currentPoint == 30)
+        {
+            enemiesPerSpawn = 4;
+        }
         if (spawnTimer >= spawnInterval)
         {
-            SpawnEnemy();
+            for (int i = 0; i < enemiesPerSpawn; i++)
+            {
+                SpawnEnemy();
+            }
             spawnTimer = 0f;
         }
     }
