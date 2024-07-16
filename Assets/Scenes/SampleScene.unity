@@ -1552,6 +1552,14 @@ PrefabInstance:
       propertyPath: spawnInterval
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1994577414}
+    - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1695681280}
     - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: amountToPool
       value: 10
