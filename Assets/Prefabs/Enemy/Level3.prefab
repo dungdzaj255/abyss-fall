@@ -217,10 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49be5c6cc8670e48b0f29cf7b2518d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -8.31
-  maxX: 6.24
-  minY: -2.95
-  maxY: -1.42
+  minX: -6.46
+  maxX: 6.34
+  minY: -9.36
+  maxY: -9.06
   speed: 2
   damageTouch: 3
   POINTS: 3

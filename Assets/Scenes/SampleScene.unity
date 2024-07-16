@@ -1544,6 +1544,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: amountToPool
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: spawnInterval
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: amountToPool
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: spawnInterval
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 2
@@ -1595,6 +1611,30 @@ PrefabInstance:
     - target: {fileID: 3160183799688585502, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873245737264946485, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873245737264946485, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983790227678768252, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983790227678768252, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850323732845391326, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: amountToPool
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850323732845391326, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
+      propertyPath: spawnInterval
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7850323732845391326, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnPoints.Array.size

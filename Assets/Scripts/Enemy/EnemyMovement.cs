@@ -6,13 +6,13 @@ public class EnemyMovement : MonoBehaviour
 {
     private Vector3 targetPosition;
     [SerializeField]
-    private float minX = -8.31f;
+    private float minX = -6.46f;
     [SerializeField]
-    private float maxX = 6.24f;
+    private float maxX = 6.34f;
     [SerializeField]
-    private float minY = -2.95f;
+    private float minY = -9.36f;
     [SerializeField]
-    private float maxY = -1.42f;
+    private float maxY = -9.06f;
     [SerializeField]
     private float speed;
     [SerializeField]
