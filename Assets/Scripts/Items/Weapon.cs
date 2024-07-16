@@ -128,6 +128,7 @@ public class Weapon : MonoBehaviour
                 rb.gravityScale = 0;
                 //độ giật súng
                 GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * recoil, ForceMode2D.Impulse);
+
             }
 
             //======================
@@ -135,7 +136,12 @@ public class Weapon : MonoBehaviour
             bulletCountUI.DecreaseByOne(currentBulletAmount);
 
             //======================
-
+            if (CameraShake.instance != null) {
+                CameraShake.instance.ShakeCamera();
+            }
+            if (AudioManager.instance != null) {
+                AudioManager.instance.PlaySFX(AudioManager.instance.shoot);
+            }
         }
     }
 

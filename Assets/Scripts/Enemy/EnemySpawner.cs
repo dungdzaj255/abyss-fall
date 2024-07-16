@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int amountToPool = 5;
     [SerializeField] private GameObject el1Prefab;
     [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] public int enemiesPerSpawn = 1;
     private float spawnTimer;
     private int deadCount=1;
     private void Awake()
@@ -33,10 +35,24 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-
+        if (PointSystem.instance.currentPoint == 20)
+        {
+            enemiesPerSpawn = 2;
+        }
+        if (PointSystem.instance.currentPoint == 30)
+        {
+            enemiesPerSpawn = 3;
+        }
+        if (PointSystem.instance.currentPoint == 40)
+        {
+            enemiesPerSpawn = 4;
+        }
         if (spawnTimer >= spawnInterval)
         {
-            SpawnEnemy();
+            for (int i = 0; i < enemiesPerSpawn; i++)
+            {
+                SpawnEnemy();
+            }
             spawnTimer = 0f;
         }
     }
@@ -77,6 +93,7 @@ public class EnemySpawner : MonoBehaviour
     }
     Vector3 GetFixedSpawnPosition()
     {
-        return new Vector3(-0.4f, -3.36f, -0.03689937f);
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        return spawnPoints[randomIndex].position;
     }
 }

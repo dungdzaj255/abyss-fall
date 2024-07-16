@@ -22,6 +22,7 @@ public class EnemyAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
 
         CheckOutOfBounds();
@@ -29,6 +30,18 @@ public class EnemyAttackController : MonoBehaviour
     }
     void Move()
     {
+        if (PointSystem.instance.currentPoint == 10)
+        {
+            moveSpeed = 8;
+        }
+        if (PointSystem.instance.currentPoint == 20)
+        {
+            moveSpeed = 10;
+        }
+        if (PointSystem.instance.currentPoint == 30)
+        {
+            moveSpeed = 12;
+        }
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
     void CheckOutOfBounds()
@@ -40,26 +53,21 @@ public class EnemyAttackController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.CompareTag("Platform"))
         {
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            Player playerHealth = collision.gameObject.GetComponent<Player>();
+            Player playerHealth = collision.GetComponent<Player>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(enemyAttackDamageAmount);
                 gameObject.SetActive(false);
             }
         }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Physics2D.IgnoreCollision(collision.collider, boxCollider);
-        }
-
     }
 
 }

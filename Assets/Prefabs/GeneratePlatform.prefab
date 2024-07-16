@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &662387206495020890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3373710069452197434}
+  - component: {fileID: 8918307018449290286}
+  m_Layer: 0
+  m_Name: GeneratePlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3373710069452197434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662387206495020890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.5607576, y: -0.046291173, z: 0.02910038}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8918307018449290286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662387206495020890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b111599f0e574764ab6df7efce5cb65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformTilemap: {fileID: 0}
+  platformTilemapPrefabs:
+  - {fileID: 376152009623047355, guid: 33947394f2145f1478dbe28ff2c05de8, type: 3}
+  - {fileID: 5816372760467947833, guid: 89036edd6de684b4abaad76c34389206, type: 3}
+  - {fileID: 8074717386495018381, guid: cbbcea9746ca4a041a9eb13235ed0fdb, type: 3}
+  - {fileID: 8074717386495018381, guid: f44aad6ee9843e34e8b100fcb2f231b1, type: 3}
+  - {fileID: 8074717386495018381, guid: 7f25be7884fcc854e8f5087bed1664aa, type: 3}
+  - {fileID: 8074717386495018381, guid: 8d9586e84704cf248a0c27334b63ac26, type: 3}
+  - {fileID: 8074717386495018381, guid: ea6489a7009bd6b48a0bcf5c5d5e5217, type: 3}
+  - {fileID: 8074717386495018381, guid: 261e061f385247340a809431a1efddb4, type: 3}
+  minTilemapsPerLine: 2
+  maxTilemapsPerLine: 3
+  initialDistanceBetweenTilemaps: 1
+  minDistanceBetweenTilemaps: 0.2
+  distanceReductionPerLine: 0.1
+  maxWidth: 7
+  player: {fileID: 0}
+  scrollSpeed: 6
+  spawnInterval: 1

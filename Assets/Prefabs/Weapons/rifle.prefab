@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af61dd95aa0fadd4492d1806f3816536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletCountUI: {fileID: 0}
   idleSprite: {fileID: 21300000, guid: ab266b01abe94bf1969717b408794600, type: 3}
   shootSprite: {fileID: 21300000, guid: 299107b317de4e9b9a05bc6be791cf51, type: 3}
   flash: {fileID: 593202893414557515}
@@ -111,7 +112,7 @@ MonoBehaviour:
   damage: 10
   bulletAmount: 4
   bulletSpeed: 5
-  recoil: 2
+  recoil: 4
   fireRate: 0.25
 --- !u!114 &5510680301820889857
 MonoBehaviour:

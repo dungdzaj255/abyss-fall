@@ -12,13 +12,13 @@ public class BulletCountUI : MonoBehaviour {
     private Transform[] bullets;
     public void UpdateBar(int max, int curr) {
         DestroyAll();
-        bulletUI_container_height = bulletUI_container.GetComponent<RectTransform>().rect.height;
+        bulletUI_container_height = bulletUI_container.GetComponent<RectTransform>().rect.height - (2.5f * (max - 1));
         if (bulletUI_container_height != 0f) {
             bulletUI_prefab_height = bulletUI_container_height / max;
             for (int i = 0; i < curr; i++) {
                 Transform newBullet = Instantiate(bulletUI_prefab, bulletUI_container);
 
-                float yOffset = (bulletUI_prefab_height) * i;
+                float yOffset = (bulletUI_prefab_height + 2.5f) * i;
                 float yPos = yOffset + (bulletUI_prefab_height / 2);
 
                 newBullet.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, yPos);

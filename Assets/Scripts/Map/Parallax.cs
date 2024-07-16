@@ -1,56 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class Parallax : MonoBehaviour
 {
-    public Transform player;
-    public float parallaxEffectMultiplier = 0.5f;
-
-    private Tilemap tilemap;
-    private float tilemapHeight;
-    private Vector3 initialPlayerPosition;
-    private float initialBackgroundY;
-
+    [SerializeField]
+    float speed = 5f;
+    float offset;
+    Renderer renderer;
+    // Start is called before the first frame update
     void Start()
     {
-        tilemap = GetComponent<Tilemap>();
-        tilemapHeight = CalculateTilemapHeight(tilemap);
-        initialPlayerPosition = player.position;
-        initialBackgroundY = tilemap.transform.position.y;
+        renderer = GetComponent<Renderer>();
+        speed = 0.07f;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Calculate how much the player has moved down
-        float playerMoveDown = initialPlayerPosition.y - player.position.y;
-
-        if (playerMoveDown > 0)
-        {
-            // Move the background based on the player's movement
-            float backgroundMoveY = playerMoveDown * parallaxEffectMultiplier;
-            tilemap.transform.position = new Vector3(tilemap.transform.position.x, initialBackgroundY - backgroundMoveY, tilemap.transform.position.z);
-
-            // Recycle the background when it moves out of the camera view
-            if (initialPlayerPosition.y - player.position.y >= tilemapHeight)
-            {
-                RecycleBackground();
-                initialPlayerPosition = player.position;
-                initialBackgroundY = tilemap.transform.position.y;
+        offset = Time.time * speed;
+        renderer.material.mainTextureOffset = new Vector2(0, -offset);
+        //offset = Time.time * speed;
+        //renderer.material.mainTextureOffset = new Vector2(0, speed * Time.deltaTime);
+        if (PointSystem.instance != null) {
+            if (PointSystem.instance.currentPoint == 10) {
+                speed = 0.135f;
+            }
+            if (PointSystem.instance.currentPoint == 20) {
+                speed = 0.175f;
+            }
+            if (PointSystem.instance.currentPoint == 30) {
+                speed = 0.21f;
             }
         }
-    }
-
-    void RecycleBackground()
-    {
-        tilemap.transform.position -= new Vector3(0, tilemapHeight, 0);
-    }
-
-    float CalculateTilemapHeight(Tilemap tilemap)
-    {
-        // Calculate the height of the Tilemap based on its bounds
-        BoundsInt bounds = tilemap.cellBounds;
-        return bounds.size.y * tilemap.cellSize.y;
     }
 }

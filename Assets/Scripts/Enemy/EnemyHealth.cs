@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void TakeDamage(float damageAmount)
     {
+
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
@@ -31,6 +32,10 @@ public class EnemyHealth : MonoBehaviour
     }
     private IEnumerator Die()
     {
+
+        if (AudioManager.instance != null) {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyDeath);
+        }
         GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(0.5f);
 

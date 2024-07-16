@@ -6,13 +6,13 @@ public class EnemyMovement : MonoBehaviour
 {
     private Vector3 targetPosition;
     [SerializeField]
-    private float minX = -8.31f;
+    private float minX = -6.46f;
     [SerializeField]
-    private float maxX = 6.24f;
+    private float maxX = 6.34f;
     [SerializeField]
-    private float minY = -2.95f;
+    private float minY = -9.36f;
     [SerializeField]
-    private float maxY = -1.42f;
+    private float maxY = -9.06f;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -63,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
-        targetPosition = new Vector3(randomX, randomY, transform.position.z);
+        targetPosition = new Vector2(randomX, randomY);
     }
 
     void MoveToTargetPosition()
@@ -87,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
         // Check if the enemy has reached the target position
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
             SetRandomTargetPosition();
         }
@@ -97,11 +97,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (transform.position.x > lastPosition.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector2(-1, 1);
         }
         else if (transform.position.x < lastPosition.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector2(1, 1);
         }
         lastPosition = transform.position;
     }
@@ -138,7 +138,7 @@ public class EnemyMovement : MonoBehaviour
                     GameObject attack = attackPool.GetPooledObject();
                     if (attack != null)
                     {
-                        attack.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+                        attack.transform.position = new Vector2(transform.position.x, transform.position.y + 2);
                         attack.SetActive(true);
                     }
                 }
