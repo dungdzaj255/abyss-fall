@@ -35,15 +35,15 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (PointSystem.instance.currentPoint == 10)
+        if (PointSystem.instance.currentPoint == 20)
         {
             enemiesPerSpawn = 2;
         }
-        if (PointSystem.instance.currentPoint == 20)
+        if (PointSystem.instance.currentPoint == 30)
         {
             enemiesPerSpawn = 3;
         }
-        if (PointSystem.instance.currentPoint == 30)
+        if (PointSystem.instance.currentPoint == 40)
         {
             enemiesPerSpawn = 4;
         }

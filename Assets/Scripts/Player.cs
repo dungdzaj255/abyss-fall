@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator animator;
     private Vector2 movement;
-    bool isGrounded = false;
+    private bool isGrounded = false;
     private bool isDead = false;
 
     public static Player Instance;
@@ -41,6 +41,16 @@ public class Player : MonoBehaviour
         healthBar.InitBar(Int32.Parse(maxHealth + ""));
         healthBar.SetMax(Int32.Parse(maxHealth + ""));
         //======================
+    }
+
+    public void setIsGround(bool isGround)
+    {
+        this.isGrounded = isGround;
+    }
+
+    public bool getIsGround()
+    {
+        return isGrounded;
     }
 
     // Update is called once per frame
@@ -126,28 +136,8 @@ public class Player : MonoBehaviour
         if (isDead) return;  // Prevent multiple death triggers
         isDead = true;
     }
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Enemy") && !isGrounded) {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            if (enemyHealth != null) {
-                enemyHealth.TakeDamage(headDamage);
-                rb.velocity = new Vector2(rb.velocity.x, bounceForce);
-                if (AudioManager.instance != null) {
-                    AudioManager.instance.PlaySFX(AudioManager.instance.collidingEnemysHead);
-                }
-            }
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Platform"))
-        {
-            Debug.Log("Da cham Plat");
-            isGrounded = true;
-            animator.SetBool("isJumping", !isGrounded);
-        }
-        
-    }
+
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

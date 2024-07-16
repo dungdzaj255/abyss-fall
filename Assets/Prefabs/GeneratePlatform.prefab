@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 8074717386495018381, guid: 8d9586e84704cf248a0c27334b63ac26, type: 3}
   - {fileID: 8074717386495018381, guid: ea6489a7009bd6b48a0bcf5c5d5e5217, type: 3}
   - {fileID: 8074717386495018381, guid: 261e061f385247340a809431a1efddb4, type: 3}
-  minTilemapsPerLine: 3
+  minTilemapsPerLine: 2
   maxTilemapsPerLine: 3
   initialDistanceBetweenTilemaps: 1
   minDistanceBetweenTilemaps: 0.2

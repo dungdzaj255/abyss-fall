@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172472941807884436, guid: bd8324fdd187df04f84b1af0a5c0e03a, type: 3}
+      propertyPath: shakeIntensity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4729640629593569065, guid: bd8324fdd187df04f84b1af0a5c0e03a, type: 3}
       propertyPath: m_Name
       value: Virtual Camera
@@ -1550,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnInterval
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2677392755506252688, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnPoints.Array.data[0]
@@ -1566,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnInterval
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2751643271977904191, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -1642,7 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850323732845391326, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnInterval
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7850323732845391326, guid: fac7a4b8df263564ca6da2ba291381fc, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -1791,6 +1795,10 @@ PrefabInstance:
       propertyPath: platformTilemap
       value: 
       objectReference: {fileID: 1345102326}
+    - target: {fileID: 8918307018449290286, guid: 146034b35bab00146b06a176d8198c77, type: 3}
+      propertyPath: minTilemapsPerLine
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1863,7 +1871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3064443791757637552, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
       propertyPath: recoil
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3064443791757637552, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
       propertyPath: fireRate
@@ -1925,6 +1933,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844499621095540186, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7b07d9660dd383c4ab8d679441638af4, type: 2}
+    - target: {fileID: 3844499621095540186, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4723719907355847221, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
       propertyPath: healthBar
       value: 
@@ -1935,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723719907355847221, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
       propertyPath: bounceForce
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6702258845101795108, guid: 2da03df6732024243a0a0f724c21d6a6, type: 3}
       propertyPath: m_Name
