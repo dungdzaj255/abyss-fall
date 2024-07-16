@@ -22,6 +22,7 @@ public class EnemyAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
 
         CheckOutOfBounds();
@@ -29,6 +30,18 @@ public class EnemyAttackController : MonoBehaviour
     }
     void Move()
     {
+        if (PointSystem.instance.currentPoint == 10)
+        {
+            moveSpeed = 8;
+        }
+        if (PointSystem.instance.currentPoint == 20)
+        {
+            moveSpeed = 10;
+        }
+        if (PointSystem.instance.currentPoint == 30)
+        {
+            moveSpeed = 12;
+        }
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
     void CheckOutOfBounds()
